@@ -17,7 +17,8 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 1.6rem;
 	font-family: 'Montserrat', sans-serif;
-	font-family: 'Open Sans', sans-serif;
+	// font-family: 'Open Sans', sans-serif;
+	// font-family: 'Akaya Kanadaka', cursive;
 	background-color: colors.$ecru;
 }
 
@@ -82,6 +83,69 @@ body {
 //navigation
 
 .navigation {
+	width: 100%;
+	height: 100px;
+	background-color: colors.$light-green;
+	display: flex;
+	flex-direction: row;
+	color: colors.$brown;
+
+	&__logo {
+		border: 2px solid colors.$brown;
+		background-color: colors.$creame;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 20px;
+		left: 20px;
+		padding: 1em;
+		z-index: 101;
+	}
+
+	&__items {
+		position: fixed;
+		top: 0;
+		height: 100vh;
+		width: 100%;
+		background-color: colors.$light-green;
+		z-index: 100;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__item {
+		position: relative;
+		color: colors.$brown;
+		margin: 0.5em 0;
+		padding: 0.5em 1.5em;
+		font-size: 2em;
+		text-decoration: none;
+
+		&:hover {
+			font-size: 2.5em;
+			text-shadow: 2px 2px colors.$green;
+			font-weight: 600;
+			transition: 1s;
+		}
+	}
+}
+
+//main container
+
+.main-container {
+	width: 100%;
+	height: 100vh;
+}
+
+//footer
+
+.footer {
 	width: 100%;
 	height: 100px;
 	background-color: colors.$light-green;
