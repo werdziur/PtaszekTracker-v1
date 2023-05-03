@@ -1,4 +1,4 @@
-import { testFunction } from './modules/nav.js'
+// import { testFunction } from './modules/nav.js'
 
-console.log('Witam JSie')
-testFunction()
+// console.log('Witam JSie')
+// testFunction()
