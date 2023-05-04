@@ -1,3 +1,5 @@
+'use strict';
+
 const navBar = document.querySelector('.navigation__items')
 const burgerButton = document.querySelector('.burger-button')
 
