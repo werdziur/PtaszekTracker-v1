@@ -1,4 +1,6 @@
 const mainMapContainer = document.querySelector('.main-container')
+const searchWindow = document.querySelector('.search')
+const overlay = document.querySelector('.overlay')
 
 function getUserPosition() {
 	if (navigator.geolocation)
@@ -14,7 +16,6 @@ function displayMap(position) {
 	const { longitude } = position.coords
 
 	const coords = [latitude, longitude]
-	console.log(coords)
 
 	let map = L.map('map').setView(coords, 13)
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -22,6 +23,22 @@ function displayMap(position) {
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	}).addTo(map)
 
-	const layer = L.marker(coords).addTo(map)
-	layer.addTo(map)
+	map.on('click', displaySearchWindow)
+
+	// const layer = L.marker(coords).addTo(map)
+	// layer.addTo(map)
 }
+
+function displaySearchWindow() {
+	searchWindow.style.display = 'flex'
+	overlay.style.display = 'block'
+}
+
+function closeSearchWindow() {
+	overlay.addEventListener('click', () => {
+		searchWindow.style.display = 'none'
+		overlay.style.display = 'none'
+	})
+}
+
+closeSearchWindow()

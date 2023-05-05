@@ -128,8 +128,70 @@ body {
 }
 
 #map {
-  height: 100vh;
+  height: 60vh;
   z-index: 50;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  width: 100vh;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.search {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50vh;
+  width: 40vh;
+  background-color: #efe4bd;
+  border-radius: 9px;
+  padding: 5rem 6rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+  transition: all 0.5s;
+  z-index: 2000;
+}
+.search__text {
+  text-align: center;
+}
+.search__row {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.search__input {
+  height: 4rem;
+  width: 20rem;
+  text-align: center;
+  border: 2px solid #7ec042;
+  border-radius: 10px;
+}
+.search__buttons {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.search__buttons--submit, .search__buttons--add {
+  height: 4rem;
+  width: 20rem;
+  padding: 1rem;
+  text-align: center;
+  border: 2px solid #418900;
+  border-radius: 10px;
+  background-color: #7ec042;
 }
 
 .footer {
