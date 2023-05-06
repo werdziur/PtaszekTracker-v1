@@ -1,6 +1,7 @@
 const mainMapContainer = document.querySelector('.main-container')
 const searchWindow = document.querySelector('.search')
 const overlay = document.querySelector('.overlay')
+const closeSearchButton = document.querySelector('.search__close')
 
 function getUserPosition() {
 	if (navigator.geolocation)
@@ -34,11 +35,12 @@ function displaySearchWindow() {
 	overlay.style.display = 'block'
 }
 
-function closeSearchWindow() {
-	overlay.addEventListener('click', () => {
+function closeSearchWindow(el) {
+	el.addEventListener('click', () => {
 		searchWindow.style.display = 'none'
 		overlay.style.display = 'none'
 	})
 }
 
-closeSearchWindow()
+closeSearchWindow(closeSearchButton)
+closeSearchWindow(overlay)
