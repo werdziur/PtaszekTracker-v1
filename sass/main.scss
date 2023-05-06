@@ -189,12 +189,12 @@ body {
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 	transition: all 0.5s;
 	z-index: 2000;
-    padding: 2rem;
+	padding: 2rem;
 
-    &__close {
-        align-self: flex-end;
-        padding: .5rem;
-    }
+	&__close {
+		align-self: flex-end;
+		padding: 0.5rem;
+	}
 
 	&__text {
 		text-align: center;
@@ -230,6 +230,56 @@ body {
 			border-radius: 10px;
 			background-color: colors.$light-green;
 		}
+	}
+}
+
+.add-bird {
+	position: fixed;
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 55vh;
+	width: 25rem;
+	background-color: colors.$creame;
+	border-radius: 9px;
+	padding: 5rem 6rem;
+	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+	transition: all 0.5s;
+	z-index: 2000;
+	padding: 2rem;
+
+	&__input {
+		height: 4rem;
+		width: 20rem;
+		text-align: center;
+		border: 2px solid colors.$light-green;
+		border-radius: 10px;
+	}
+
+	&__inputs {
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+		justify-content: space-around;
+	}
+
+	&__submit {
+		height: 4rem;
+		width: 20rem;
+		padding: 1rem;
+		text-align: center;
+		border: 2px solid colors.$green;
+		border-radius: 10px;
+		background-color: colors.$light-green;
+	}
+
+	&__close {
+		align-self: flex-end;
+		padding: 0.5rem;
 	}
 }
 

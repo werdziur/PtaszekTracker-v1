@@ -2,6 +2,9 @@ const mainMapContainer = document.querySelector('.main-container')
 const searchWindow = document.querySelector('.search')
 const overlay = document.querySelector('.overlay')
 const closeSearchButton = document.querySelector('.search__close')
+const addBirdWindow = document.querySelector('.add-bird')
+const buttonAddBird = document.querySelector('.search__buttons--add')
+const buttonCloseAddWindow = document.querySelector('.add-bird__close')
 
 function getUserPosition() {
 	if (navigator.geolocation)
@@ -35,12 +38,23 @@ function displaySearchWindow() {
 	overlay.style.display = 'block'
 }
 
-function closeSearchWindow(el) {
-	el.addEventListener('click', () => {
+function displayAddWindow() {
+	buttonAddBird.addEventListener('click', () => {
 		searchWindow.style.display = 'none'
+		addBirdWindow.style.display = 'flex'
+		overlay.style.display = 'block'
+	})
+}
+
+function closeSearchWindow(el, target) {
+	el.addEventListener('click', () => {
+		target.style.display = 'none'
 		overlay.style.display = 'none'
 	})
 }
 
-closeSearchWindow(closeSearchButton)
-closeSearchWindow(overlay)
+closeSearchWindow(closeSearchButton, searchWindow)
+closeSearchWindow(overlay, searchWindow)
+closeSearchWindow(buttonCloseAddWindow, addBirdWindow)
+closeSearchWindow(overlay, addBirdWindow)
+displayAddWindow()
