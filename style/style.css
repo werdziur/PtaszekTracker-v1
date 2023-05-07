@@ -259,12 +259,28 @@ body {
   padding: 8px;
 }
 
+.fa-hand-pointer {
+  animation: updown 2s ease infinite;
+}
+
 .footer {
   width: 100%;
   height: 10vh;
   background-color: #7ec042;
   position: fixed;
   bottom: 0;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

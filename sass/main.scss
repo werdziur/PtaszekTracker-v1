@@ -1,5 +1,6 @@
 @use './colors';
 
+
 *,
 *::before,
 *::after {
@@ -300,6 +301,10 @@ body {
 	}
 }
 
+.fa-hand-pointer {
+    animation: updown 2s ease infinite;
+}
+
 //footer
 
 .footer {
@@ -309,3 +314,23 @@ body {
 	position: fixed;
 	bottom: 0;
 }
+
+//animations
+
+@keyframes updown {
+    0% {
+      transform: translateY(-100%);
+    }
+  
+    50% {
+      transform: translateY(100%);
+    }
+  
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+
+
+

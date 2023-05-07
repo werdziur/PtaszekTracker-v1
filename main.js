@@ -1,6 +1,5 @@
 import './modules/nav.js'
 import './modules/map.js'
 
-// function showForm() {
-
-// }
+let date = new Date()
+let id = Math.random() + ''
