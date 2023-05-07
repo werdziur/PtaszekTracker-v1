@@ -1,9 +1,140 @@
 [
 	{
-		"name": 1,
-        "id": "",
-		"description": "Douglas Crockford",
-		"photo": "https://m.media-amazon.com/images/I/5131OWtQRaL._SX381_BO1,204,203,200_.jpg",
-		"facts": "JavaScript: The Good Parts"
+		"name": "Modraszka",
+		"description": "Długość ciała: 11-12 cm. Zgrabny i ruchliwy ptak mniejszy od wróbla. Czapeczka na głowie niebieska otoczona białą obwódką, policzki białe a wokół nich biegnie ciemnoniebieski paseczek łączący się na karku. Skrzydła i ogon niebieskie, grzbiet oliwkowy, pierś i brzuch żółte. Często odzywa się dzwoniącymi trelami. Modraszka przebywa u nas przez cały rok, choć w rzeczywistości część ptaków odlatuje, a inne przybywają na zimę z północy i wschodu Europy.",
+		"photo": "",
+		"facts": "Lęg: 10-12 białych, czerwono nakrapianych jaj. Wysiadywanie: 12-14 dni. Młode opuszczają gniazdo po 17-18 dniach"
+	},
+	{
+		"name": "Pełzacz",
+		"description": "12-13 cm Bardzo podobny do pełzacza ogrodowego. Różni się subtelnymi szczegółami ubarwienia, m. in. układem pasków i plamek na skrzydłach, czysto białym spodem ciała, krótszym dziobem. Najłatwiej rozpoznawalny po dłuższym, melodyjnym trelu z miękkim zakończeniem. Polskie nazwy pełzaczy mylnie sugerują, że ptaki te wymijają się siedliskami występowania, co nie zawsze jest zgodne z prawdą.",
+		"photo": "",
+		"facts": "Występowanie: Wszystkie typy lasów liściastych i iglastych, a także mniejsze zadrzewienia, ale raczej omija zadrzewienia miejskie i parki"
+	},
+	{
+		"name": "Piegża",
+		"description": "Długość ciała: 13 cm .Skromnie ubarwiona pokrzewka. Wierzch ciała szarobrązowy. Głowa bardziej popielata z ciemnoszarymi pokrywami usznymi, tworzącymi słabo skontrastowaną maseczkę. Spód szarawopłowy, gardło białe. Lotki drugiego rzędu z jasnymi obrzeżaniami tworzącymi jaśniejsze pole na skrzydle.",
+		"photo": "",
+		"facts": "Występuje chętnie w osadach ludzkich, nawet w miastach, gdzie swą obecność ogłasza prostym, klekocącym śpiewem."
+	},
+	{
+		"name": "Rycyk",
+		"description": "Długość ciała: 40-48 cm. Ptak wielkości gołębia o długich nogach i dziobie. Ma rdzawą głowę i szyję, prążkowany spód ciała i plamkowany wierzch. W locie rzucają się w oczy skontrastowane białe pasy na skrzydłach i czarno-biały ogon. Rycyk jest symbolem podmokłych łąk, gdzie ogłasza swą obecność donośnym, rytmicznie powtarzanym głosem.",
+		"photo": "",
+		"facts": "Siedlisko: Podmokłe i zabagnione łąki w dolinach rzecznych i na obrzeżach zbiorników wodnych."
+	},
+	{
+		"name": "Słowik",
+		"description": "Długość ciała: 16-18 cm. Oba gatunki słowików występujących w naszym kraju są do siebie bardzo podobne, a ich polskie nazwy dobrze odzwierciedlają różnice w odcieniu brązowego ubarwienia.",
+		"photo": "",
+		"facts": "Przez Polskę przebiega granica zasięgu obu gatunków: w zachodniej połowie kraju występuje słowik rdzawy, a we wschodniej słowik szary."
+	},
+	{
+		"name": "Gołąb pospolity",
+		"description": "31-36 cm Pochodzi od dzikiego gołębia skalnego występującego w Europie Południowej. Część ptaków formy miejskiej wygląda identycznie jak ptaki dzikie charakteryzując się dwoma czarnymi paskami na skrzydłach oraz biała plama na dole grzbietu. Większość osobników ma bardzo zmienny wygląd z powodu mieszania się z różnymi rasami gołębi domowych.",
+		"photo": "",
+		"facts": "Zwykle gniazduje kolonijnie na budynkach: na strychach, poddaszach, parapetach, balkonach, wieżach kościelnych itp. Gniazdo to płaska platforma z gałązek o ażurowej konstrukcji."
+	},
+	{
+		"name": "Myszołów",
+		"description": "Długość ciała: 50-57 cm. Średniej wielkości ptak drapieżny o bardzo zmiennym ubarwieniu utrzymanym w różnych odcieniach brązu, często z jaśniejszym spodem ciała. Ogon i lotki pręgowane. W locie sylwetka dość zwarta o stosunkowo szerokich i niezbyt długich skrzydłach i dość krótkim ogonie. Najczęstszy ptak drapieżny w kraju, widywany zwykle jak czatuje na ofiarę z wysokiego posterunku. ",
+		"photo": "",
+		"facts": "Często wypatrując zdobyczy zawisa na chwilę w powietrzu trzepocząc skrzydłami."
+	},
+	{
+		"name": "Trznadel",
+		"description": "Długość ciała: 16-18 cm. Ptak wielkości wróbla z długim ogonem. Głowa żółta z czarnym rysunkiem. Wierzch brązowy, ciemno plamkowany, kuper rdzawobrązowy. Spód żółty z brunatnym kreskowaniem i rdzawą przepaską na piersi. Samica mniej jaskrawa. Obok skowronka jest najpospolitszym ptakiem terenów otwartych.",
+		"photo": "",
+		"facts": ""
+	},
+	{
+		"name": "Bocian biały",
+		"description": "",
+		"photo": "",
+		"facts": "Pokarm: Głównie nasiona, a w okresie lęgowym także bezkręgowce"
+	},
+	{
+		"name": "Sowa",
+		"description": "Rodzina puszczykowate Opis Długość ciała: 35–43 cmŚredniej wielkości, smukła sowa o długim ogonie i zaostrzonymi skrzydłami. Sylwetką w locie i ubarwieniem przypomina krogulca. Na głowie biała, czarno obwiedziona szlara, spód drobno prążkowany, wierzch czarny z biało plamkowanymi barkówkami i pokrywami skrzydłowymi, ogon ciemny, wąsko pręgowany. Prowadzi dzienny tryb życia. Czatuje na zdobycz wysokiego punktu obserwacyjnego.",
+		"photo": "",
+		"facts": "Liczebność: W ostatnim półwieczu odnotowana zaledwie 5 razy."
+	},
+	{
+		"name": "Dzięcioł",
+		"description": "Większy i masywniejszy od dzięcioła dużego, od którego różni się biało pręgowanym grzbietem i białym kuprem. Spód ciała czarno kreskowany na bladoróżowym tle. Samiec ma czerwona czapeczkę na głowie, której brak u samicy.",
+		"photo": "",
+		"facts": "Rzadki w naszym kraju, gdyż jest silnie związany ze starymi drzewostanami obfitującymi w martwe, próchniejące drzewa, które są usuwane z gospodarczych lasów."
+	},
+	{
+		"name": "Kos",
+		"description": "Długość ciała: 24-27 cm. Czarno ubarwiony ptak ze stosunkowo długim ogonem (co odróżnia go od szpaka) i pomarańczowym dziobem. Samica brunatna, plamkowana od spodu. Kos był pierwotnie ptakiem typowo leśnym, a obecnie występuje licznie w różnych środowiskach, także w zieleni miejskiej, parkach, ogródkach działkowych i dzielnicach willowych.",
+		"photo": "",
+		"facts": "Lęg: 5-6 zielonkawych, rdzawo plamkowanych jaj. Wysiadywanie: 12-14 dni. Młode opuszczają gniazdo po 13-14 dniach"
+	},
+	{
+		"name": "Kukułka",
+		"description": "Długość ciała: 32-38 cm. Ptak wielkości pustułki, o długim ogonie i zaostrzonych skrzydłach. Ubarwieniem przypomina krogulca, gdyż ma szary wierzch ciała i pierś oraz prążkowany brzuch. Samice występują w dwóch odmianach, z których jedna jest podobna do samca, a druga jest ubarwiona rdzawo.",
+		"photo": "",
+		"facts": "Kukułka słynie ze zwyczaju podrzucania swych jaj do gniazd drobnych ptaków wróblowych. Każda samica znosi jedno jajo do gniazda tego gatunku, którego jaja są podobne do jej własnych. Są to najczęściej gniazda świergotków, pliszek, pokrzewek, gąsiorków, trzcinniczków, itp. Pisklę kukułki po wykluciu usuwa inne jaja lub pisklęta z gniazda i jest karmione przez przybranych rodziców."
+	},
+	{
+		"name": "Biegus",
+		"description": "Ptak mniejszy od szpaka. Sylwetka dość krępa o krótkiej szyi i niezbyt długich nogach. W szacie godowej łatwo rozpoznawalny do czarnej plamie na brzuchu. Wierzch czarno-szaro-rdzawy, pierś czarno kreskowana na białym tle. W szacie spoczynkowej popielaty z wierzchu, biały od spodu z delikatnym plamkowaniem na piersi. W locie widoczny biały pasek biegnący wzdłuż skrzydła oraz czarny pasek przez środek kupra i ogona. Dziób czarny, średniej długości, lekko zakrzywiony w dół.",
+		"photo": "",
+		"facts": "Biegus zmienny jest najliczniejszym biegusem przelatującym przez nasz kraj, jesienią może tworzyć duże stada."
+	},
+	{
+		"name": "Czapla",
+		"description": "Długość ciała: 90-105 cm. Ptak wielkości bociana o smukłej sylwetce z długą wygiętą szyją. Upierzenie popielate z wierzchu i białawe od spodu. Z tyłu głowy zwisa czarny czub, zaś z przodu szyi ma rząd czarnych plamek. Młoda czapla nie ma wyrazistego rysunku na głowie i szyi. W locie różni się od bociana lub żurawia esowato wygiętą szyją i łukowato wygiętymi skrzydłami.",
+		"photo": "",
+		"facts": "Liczebność: Nieliczny ptak lęgowy: 9000-10 000 par"
+	},
+	{
+		"name": "Dudek",
+		"description": "Jeden z oryginalniejszych naszych ptaków. Wyróżnia się gliniastopomarańczowym ubarwieniem z czarno-biało pręgowanym grzbietem i skrzydłami oraz czarnym ogonem z białą przepaską. Pstre ubarwienie jest szczególnie rzucające się w oczy u ptaka w locie, gdy wygląda jak ogromny motyl. ",
+		"photo": "",
+		"facts": "Na głowie ma długi ruchliwy czub z czarno zakończonych piór, który rozpościera wachlarzowato w chwilach zaniepokojenia. Odzywa się donośnym, niskim upupup. Długi dziób służy do wyszukiwania zdobyczy w ziemi."
+	},
+	{
+		"name": "Czubatka",
+		"description": "Drobna sikora wyróżniająca się zaostrzonym, czarno plamkowanym czubkiem. Na głowie niepowtarzalny, czarno-biały rysunek. Wierzch szarobrązowy, spód białawopłowy.",
+		"photo": "",
+		"facts": "Choć jest ptakiem pospolitym w borach, to jest mało znana, gdyż stale przebywa w koronach drzew iglastych, skąd dobiega jej dźwięczny trel gjurrr."
+	},
+	{
+		"name": "Zimorodek",
+		"description": "Długość ciała: 16-18 cm. Jeden z najbarwniejszych naszych ptaków. Wierzch ciała niebieskozielony z turkusowym grzbietem i ogonem. Spód ciała i policzki rdzawobrązowe a gardło białe. Ma nieproporcjonalnie długi i mocny dziób oraz bardzo krótkie nogi i ogon.",
+		"photo": "",
+		"facts": "Mimo swego jaskrawego ubarwienia niełatwo go zauważyć gdy w bezruchu czatuje na zdobycz. Łowi ryby i wodne owady rzucając się do wody z nadwodnego posterunku. Lata szybkim, prostoliniowym lotem, zwykle nisko nad wodą, odzywając się wysokim przenikliwym głosem."
+	},
+	{
+		"name": "Kruk",
+		"description": "Znacznie większy i masywniejszy od gawrona. W locie różni się od niego dużą głową z mocnym dziobem, długimi skrzydłami o rozpiętości zbliżonej do myszołowa i długim klinowatym ogonem. Ubarwienie całkowicie czarne z metalicznym połyskiem.",
+		"photo": "",
+		"facts": "Kruk jest jednym z najwcześniej przystępujących do lęgów ptaków w naszym kraju, często składa jaja już na początku marca."
+	},
+	{
+		"name": "Gąsiorek",
+		"description": "Długość ciała: 16-18 cm. Ptak większy od wróbla z dłuższym ogonem. Samiec jest łatwo rozpoznawalny po czarnej masce na popielatej głowie i rdzawobrązowym wierzchu ciała. Spód z beżowym nalotem. Ogon czarny z białymi skrajami u nasady. Samica o podobnym schemacie ubarwienia, ale mniej skontrastowana z łuskowanym wzorem na spodzie ciała.",
+		"photo": "",
+		"facts": "Gąsiorek często przesiaduje na odkrytym posterunku, skąd obserwuje okolicę wypatrując zdobyczy. Jak na swe niewielkie rozmiary potrafi schwytać zaskakująco duże ofiary, ledwie ustępujące mu wielkością."
+	},
+	{
+		"name": "Dymówka",
+		"description": "Długość ciała: 17-23 cm. Niewielki, smukły ptak o granatowo połyskującym czarnym wierzchu ciała i białawym lub jasnopomarańczowym spodzie. Gardło i czoło rdzawe, oddzielone od piersi czarną przepaską. Skrajne sterówki wydłużone, przez co ogon jest głęboko rozwidlony. Dymówka jest powszechnie znanym ptakiem, gdyż najczęściej gniazduje w zabudowaniach ludzkich. Nocuje w wielotysięcznych skupieniach w trzcinowiskach.",
+		"photo": "",
+		"facts": "Gniazdo: Czarka ulepiona z ziemi i przyklejona do pionowej ściany, wyścielona piórkami, z reguły we wnętrzu budynku"
+	},
+	{
+		"name": "Czyż",
+		"description": "Drobny ptak, wyraźnie mniejszy i delikatniejszy od wróbla. Samiec z czarną czapeczką i plamka na gardle i szarymi policzkami. Reszta głowy, szyja i pierś żółte, brzuch biały, ciemno kreskowany. Kark i grzbiet zielonkawe, ciemno kreskowane. Na czarnym skrzydle dwa żółte paski i obrzeżenia lotek. Żółte również boki nasady ogona i kuper. Samica bez rysunku na głowie i znacznie mniej żółta.",
+		"photo": "",
+		"facts": "Jest ptakiem towarzyskim i w okresie pozalęgowym tworzy ruchliwe stada, które żerują na drzewach wyjadając nasiona w akrobatycznych pozach."
+	},
+	{
+		"name": "Mandarynka",
+		"description": "Rodzina kaczkowate OpisDługość ciała: 41–49 cmNieduża kaczka o bardzo kolorowym ubarwieniu. Na głowie obfita grzywa oddzielona długą białą brwią od pomarańczowych policzków. Grzbiet czarniawy, boki ciała brązowe oddzielone od czarniawej piersi dwoma białymi paskami. Z tyłu ciała dwa szerokie, pomarańczowe pióra sterczące niczym „żagle”. ",
+		"photo": "",
+		"facts": "Ptaki zbiegłe z niewoli czasem przystępują w kraju do lęgów, co odnotowano kilkakrotnie, np. w warszawskich Łazienkach."
 	}
 ]
