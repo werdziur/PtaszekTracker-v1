@@ -5,14 +5,9 @@ const loadSearchResults = async function () {
 	try {
 		const response = await fetch('birds.json')
 		const data = await response.json()
-		const result =
-			userInput.value === ''
-				? alert('Please provide birds name')
-				: data.filter(el => el.name === userInput.value.toLowerCase())
-		userInput.value = ''
-		console.log(result)
+		loadFinalSearchList(data)
 	} catch (error) {
-		console.error(`${error}!!`)
+		console.error(`${error} :(!!`)
 	}
 }
 
@@ -21,3 +16,14 @@ buttonSearchSubmit.addEventListener('click', loadSearchResults)
 // const renderListOfResults = function() {
 
 // }
+
+const loadFinalSearchList = function (result) {
+	result =
+		userInput.value === ''
+			? alert('Please provide birds name')
+			: result.filter(el => {
+					return el.name.slice(0, userInput.value.length) === userInput.value.toLowerCase()
+			  })
+
+	userInput.value = ''
+}
