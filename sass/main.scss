@@ -323,6 +323,7 @@ body {
 	transition: all 0.5s;
 	z-index: 2000;
 
+
 	&__result {
 		background-color: colors.$ecru;
 		height: 100px;
@@ -351,8 +352,22 @@ body {
 
 	&__heading {
 		display: flex;
-		align-items: center;
+        align-items: center;
 	}
+
+    &__name {
+        font-size: 1.5rem;
+        display: inline;
+        margin-left: 7px; 
+        padding: .5rem;
+      
+    }
+}
+
+.search-results img {
+    width: 80px;
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
 }
 
 //footer
