@@ -1,6 +1,5 @@
 @use './colors';
 
-
 *,
 *::before,
 *::after {
@@ -251,7 +250,6 @@ body {
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 	transition: all 0.5s;
 	z-index: 2000;
-	padding: 2rem;
 
 	&__input {
 		height: 4rem;
@@ -302,7 +300,46 @@ body {
 }
 
 .fa-hand-pointer {
-    animation: updown 2s ease infinite;
+	animation: updown 2s ease infinite;
+}
+
+//search results
+
+.search-results {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	// justify-content: space-around;
+	align-items: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 80vh;
+	width: 30rem;
+	background-color: colors.$creame;
+	border-radius: 9px;
+	padding: 2rem;
+	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+	transition: all 0.5s;
+	z-index: 2000;
+
+	&__result {
+		background-color: colors.$ecru;
+		height: 50px;
+		width: 200px;
+		border-radius: 9px;
+		padding: 5rem 6rem;
+		box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+	}
+
+    &__close {
+        align-self: flex-end;
+		padding: 0.5rem;
+    }
+
+    &__container {
+        margin-top: 20px;
+    }
 }
 
 //footer
@@ -318,19 +355,15 @@ body {
 //animations
 
 @keyframes updown {
-    0% {
-      transform: translateY(-100%);
-    }
-  
-    50% {
-      transform: translateY(100%);
-    }
-  
-    100% {
-      transform: translateY(-100%);
-    }
-  }
+	0% {
+		transform: translateY(-100%);
+	}
 
+	50% {
+		transform: translateY(100%);
+	}
 
-
-
+	100% {
+		transform: translateY(-100%);
+	}
+}

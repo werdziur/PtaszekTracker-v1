@@ -216,7 +216,6 @@ body {
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
   transition: all 0.5s;
   z-index: 2000;
-  padding: 2rem;
 }
 .add-bird__input {
   height: 4rem;
@@ -261,6 +260,39 @@ body {
 
 .fa-hand-pointer {
   animation: updown 2s ease infinite;
+}
+
+.search-results {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 30rem;
+  background-color: #efe4bd;
+  border-radius: 9px;
+  padding: 2rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+  transition: all 0.5s;
+  z-index: 2000;
+}
+.search-results__result {
+  background-color: #fffbf3;
+  height: 50px;
+  width: 200px;
+  border-radius: 9px;
+  padding: 5rem 6rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+}
+.search-results__close {
+  align-self: flex-end;
+  padding: 0.5rem;
+}
+.search-results__container {
+  margin-top: 20px;
 }
 
 .footer {

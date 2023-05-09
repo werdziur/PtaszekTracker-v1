@@ -13,9 +13,7 @@ const loadSearchResults = async function () {
 
 buttonSearchSubmit.addEventListener('click', loadSearchResults)
 
-// const renderListOfResults = function() {
 
-// }
 
 const loadFinalSearchList = function (result) {
 	result =
@@ -23,7 +21,21 @@ const loadFinalSearchList = function (result) {
 			? alert('Please provide birds name')
 			: result.filter(el => {
 					return el.name.slice(0, userInput.value.length) === userInput.value.toLowerCase()
+                   
 			  })
+              console.log(result)
 
 	userInput.value = ''
 }
+
+
+// const renderListOfResults = function() {
+
+// }
+
+
+//1. funkcja pobierajaca dane z inputow w sekcji add bird
+//2. funkcja renderujaca liste wyszukanych ptaszkow czyli najpierw musze zbudowac osobny div i w nim umiescic ptaszki
+//3. funkcja renderujaca nowo dodanego ptaszka do tej listy ptaszkow
+//4. dodanie znacznika do mapy + jego opis
+//5.pamietac o generowaniu id i dodawaniu do kazdego ptaszkowego obiektu
