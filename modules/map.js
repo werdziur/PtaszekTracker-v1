@@ -1,6 +1,8 @@
+import { buttonSearchSubmit } from "./search.js"
+
 const mainMapContainer = document.querySelector('.main-container')
-const searchWindow = document.querySelector('.search')
-const overlay = document.querySelector('.overlay')
+export const searchWindow = document.querySelector('.search')
+export const overlay = document.querySelector('.overlay')
 const closeSearchButton = document.querySelector('.search__close')
 const addBirdWindow = document.querySelector('.add-bird')
 const buttonAddBird = document.querySelector('.search__buttons--add')
@@ -56,5 +58,6 @@ function closeSearchWindow(el, target) {
 closeSearchWindow(closeSearchButton, searchWindow)
 closeSearchWindow(overlay, searchWindow)
 closeSearchWindow(buttonCloseAddWindow, addBirdWindow)
+closeSearchWindow(buttonSearchSubmit, searchWindow)
 closeSearchWindow(overlay, addBirdWindow)
 displayAddWindow()

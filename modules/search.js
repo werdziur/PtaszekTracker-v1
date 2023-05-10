@@ -1,5 +1,10 @@
-const buttonSearchSubmit = document.querySelector('.search__buttons--submit')
+import { overlay, searchWindow } from './map.js'
+import { id } from '../main.js'
+
+export const buttonSearchSubmit = document.querySelector('.search__buttons--submit')
 let userInput = document.querySelector('.search__input')
+const searchResultsContainer = document.querySelector('.search-results__container')
+const mainContainerResults = document.querySelector('.search-results')
 
 const loadSearchResults = async function () {
 	try {
@@ -13,26 +18,32 @@ const loadSearchResults = async function () {
 
 buttonSearchSubmit.addEventListener('click', loadSearchResults)
 
-
-
 const loadFinalSearchList = function (result) {
 	result =
 		userInput.value === ''
 			? alert('Please provide birds name')
 			: result.filter(el => {
 					return el.name.slice(0, userInput.value.length) === userInput.value.toLowerCase()
-                   
 			  })
-              console.log(result)
-
+	console.log(result)
 	userInput.value = ''
+	result.forEach(el => renderResult(el))
 }
 
+const renderResult = function (result) {
+	let html = ` <div class="search-results__result" data-id="${result.id}">
+<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
+<div class="search-results__heading">
+    <img src="${result.photo}" alt="Photo of the bird">
+    <p class="search-results__name">${result.name}</p>
+</div>
+</div>`
 
-// const renderListOfResults = function() {
 
-// }
 
+	mainContainerResults.style.display = 'flex'
+	searchResultsContainer.insertAdjacentHTML('afterend', html)
+}
 
 //1. funkcja pobierajaca dane z inputow w sekcji add bird
 //2. funkcja renderujaca liste wyszukanych ptaszkow czyli najpierw musze zbudowac osobny div i w nim umiescic ptaszki
