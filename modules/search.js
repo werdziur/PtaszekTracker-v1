@@ -3,8 +3,9 @@ import { id } from '../main.js'
 
 export const buttonSearchSubmit = document.querySelector('.search__buttons--submit')
 let userInput = document.querySelector('.search__input')
-const searchResultsContainer = document.querySelector('.search-results__container')
-const mainContainerResults = document.querySelector('.search-results')
+export const searchResultsContainer = document.querySelector('.search-results__container')
+export const mainContainerResults = document.querySelector('.search-results')
+export const closeResultsButton = document.querySelector('.search-results__close')
 
 const loadSearchResults = async function () {
 	try {
@@ -39,10 +40,8 @@ const renderResult = function (result) {
 </div>
 </div>`
 
-
-
 	mainContainerResults.style.display = 'flex'
-	searchResultsContainer.insertAdjacentHTML('afterend', html)
+	searchResultsContainer.insertAdjacentHTML('afterbegin', html)
 }
 
 //1. funkcja pobierajaca dane z inputow w sekcji add bird

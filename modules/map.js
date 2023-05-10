@@ -1,4 +1,4 @@
-import { buttonSearchSubmit } from "./search.js"
+import { buttonSearchSubmit, mainContainerResults, searchResultsContainer, closeResultsButton } from './search.js'
 
 const mainMapContainer = document.querySelector('.main-container')
 export const searchWindow = document.querySelector('.search')
@@ -48,16 +48,23 @@ function displayAddWindow() {
 	})
 }
 
-function closeSearchWindow(el, target) {
+function closeWindow(el, target) {
 	el.addEventListener('click', () => {
-		target.style.display = 'none'
-		overlay.style.display = 'none'
+		if (el === buttonSearchSubmit) {
+			target.style.display = 'none'
+		} else {
+			target.style.display = 'none'
+			overlay.style.display = 'none'
+			searchResultsContainer.innerHTML = '';
+		}
 	})
 }
 
-closeSearchWindow(closeSearchButton, searchWindow)
-closeSearchWindow(overlay, searchWindow)
-closeSearchWindow(buttonCloseAddWindow, addBirdWindow)
-closeSearchWindow(buttonSearchSubmit, searchWindow)
-closeSearchWindow(overlay, addBirdWindow)
+closeWindow(closeSearchButton, searchWindow)
+closeWindow(overlay, searchWindow)
+closeWindow(buttonCloseAddWindow, addBirdWindow)
+closeWindow(overlay, addBirdWindow)
+closeWindow(buttonSearchSubmit, searchWindow)
+closeWindow(overlay, mainContainerResults)
+closeWindow(closeResultsButton, mainContainerResults)
 displayAddWindow()
