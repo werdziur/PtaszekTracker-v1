@@ -32,7 +32,7 @@ const loadFinalSearchList = function (result) {
 }
 
 const renderResult = function (result) {
-	let html = ` <div class="search-results__result" data-id="${result.id}">
+	let html = ` <div class="search-results__result" data-id="${id}">
 <div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
 <div class="search-results__heading">
     <img src="${result.photo}" alt="Photo of the bird">
