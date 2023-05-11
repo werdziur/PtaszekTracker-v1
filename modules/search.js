@@ -8,6 +8,7 @@ export const mainContainerResults = document.querySelector('.search-results')
 export const closeResultsButton = document.querySelector('.search-results__close')
 export const errorMessage = document.querySelector('.error-window')
 const errorMessageButton = document.querySelector('.error-window__button')
+const errorWindowText = document.querySelector('.error-window__text')
 
 
 
@@ -40,7 +41,8 @@ const loadFinalSearchList = function (result) {
 
 const renderList = function (result) {
 	if (result.length === 0) {
-		alert('No results. Try again')
+        errorWindowText.innerText = 'No results. Please try again!'
+		errorMessage.style.display = 'flex'
 	} else {
 		result.forEach(el => renderResult(el))
 	}
