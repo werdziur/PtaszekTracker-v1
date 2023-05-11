@@ -27,8 +27,18 @@ const loadFinalSearchList = function (result) {
 					return el.name.slice(0, userInput.value.length) === userInput.value.toLowerCase()
 			  })
 	console.log(result)
-	userInput.value = ''
-	result.forEach(el => renderResult(el))
+	if (result === undefined) {
+        userInput.value = ''
+        overlay.style.display = 'none'
+        return}
+	if (result.length === 0) {
+		alert('No results. Try again')
+	} else {
+		result.forEach(el => renderResult(el))
+       
+	}
+    userInput.value = ''
+    overlay.style.display = 'none'
 }
 
 const renderResult = function (result) {

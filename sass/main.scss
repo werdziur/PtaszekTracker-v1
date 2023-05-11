@@ -309,7 +309,6 @@ body {
 	position: fixed;
 	display: none;
 	flex-direction: column;
-	// justify-content: space-around;
 	align-items: center;
 	top: 50%;
 	left: 50%;
@@ -322,7 +321,7 @@ body {
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 	transition: all 0.5s;
 	z-index: 2000;
-    scroll-behavior: smooth;
+    // scroll-behavior: smooth;
     
 
 
@@ -372,6 +371,26 @@ body {
     border-radius: 9px;
 }
 
+//error window
+
+.error-window {
+	position: fixed;
+	display: flex;
+    justify-content: center;
+	align-items: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 80vh;
+	width: 30rem;
+	background-color: colors.$creame;
+	border-radius: 9px;
+	padding: 2rem;
+	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+	transition: all 0.5s;
+	z-index: 2000;
+}
+
 //footer
 
 .footer {
@@ -381,6 +400,7 @@ body {
 	position: fixed;
 	bottom: 0;
 }
+
 
 //animations
 
