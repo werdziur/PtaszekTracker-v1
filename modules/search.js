@@ -6,6 +6,11 @@ let userInput = document.querySelector('.search__input')
 export const searchResultsContainer = document.querySelector('.search-results__container')
 export const mainContainerResults = document.querySelector('.search-results')
 export const closeResultsButton = document.querySelector('.search-results__close')
+export const errorMessage = document.querySelector('.error-window')
+const errorMessageButton = document.querySelector('.error-window__button')
+const errorWindowText = document.querySelector('.error-window__text')
+
+
 
 const loadSearchResults = async function () {
 	try {
@@ -17,28 +22,31 @@ const loadSearchResults = async function () {
 	}
 }
 
-buttonSearchSubmit.addEventListener('click', loadSearchResults)
+
 
 const loadFinalSearchList = function (result) {
-	result =
-		userInput.value === ''
-			? alert('Please provide birds name')
-			: result.filter(el => {
-					return el.name.slice(0, userInput.value.length) === userInput.value.toLowerCase()
-			  })
-	console.log(result)
-	if (result === undefined) {
-        userInput.value = ''
-        overlay.style.display = 'none'
-        return}
+	if (userInput.value === '') {
+		return (errorMessage.style.display = 'flex')
+	} else {
+		result = result.filter(el => {
+			return el.name.slice(0, userInput.value.length) === userInput.value.toLowerCase()
+		})
+
+		console.log(result)
+	}
+	renderList(result)
+}
+
+
+
+const renderList = function (result) {
 	if (result.length === 0) {
-		alert('No results. Try again')
+        errorWindowText.innerText = 'No results. Please try again!'
+		errorMessage.style.display = 'flex'
 	} else {
 		result.forEach(el => renderResult(el))
-       
 	}
-    userInput.value = ''
-    overlay.style.display = 'none'
+	userInput.value = ''
 }
 
 const renderResult = function (result) {
@@ -54,8 +62,14 @@ const renderResult = function (result) {
 	searchResultsContainer.insertAdjacentHTML('afterbegin', html)
 }
 
+buttonSearchSubmit.addEventListener('click', loadSearchResults)
+errorMessageButton.addEventListener('click', () => {
+    searchWindow.style.display = 'flex'
+    errorMessage.style.display = 'none'
+})
+
 //1. funkcja pobierajaca dane z inputow w sekcji add bird
-//2. funkcja renderujaca liste wyszukanych ptaszkow czyli najpierw musze zbudowac osobny div i w nim umiescic ptaszki
+
 //3. funkcja renderujaca nowo dodanego ptaszka do tej listy ptaszkow
 //4. dodanie znacznika do mapy + jego opis
-//5.pamietac o generowaniu id i dodawaniu do kazdego ptaszkowego obiektu
+

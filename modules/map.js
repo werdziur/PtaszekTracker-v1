@@ -1,4 +1,10 @@
-import { buttonSearchSubmit, mainContainerResults, searchResultsContainer, closeResultsButton } from './search.js'
+import {
+	buttonSearchSubmit,
+	mainContainerResults,
+	searchResultsContainer,
+	closeResultsButton,
+	errorMessage,
+} from './search.js'
 
 const mainMapContainer = document.querySelector('.main-container')
 export const searchWindow = document.querySelector('.search')
@@ -52,10 +58,12 @@ function closeWindow(el, target) {
 	el.addEventListener('click', () => {
 		if (el === buttonSearchSubmit) {
 			target.style.display = 'none'
-		} else {
+		}
+		// if (el === errorButton)
+		else {
 			target.style.display = 'none'
 			overlay.style.display = 'none'
-			searchResultsContainer.innerHTML = '';
+			searchResultsContainer.innerHTML = ''
 		}
 	})
 }
@@ -66,5 +74,6 @@ closeWindow(buttonCloseAddWindow, addBirdWindow)
 closeWindow(overlay, addBirdWindow)
 closeWindow(buttonSearchSubmit, searchWindow)
 closeWindow(overlay, mainContainerResults)
+closeWindow(overlay, errorMessage)
 closeWindow(closeResultsButton, mainContainerResults)
 displayAddWindow()
