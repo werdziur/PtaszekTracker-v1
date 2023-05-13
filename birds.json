@@ -3,7 +3,7 @@
 		"name": "modraszka",
 		"id": "",
 		"description": "Długość ciała: 11-12 cm. Zgrabny i ruchliwy ptak mniejszy od wróbla. Czapeczka na głowie niebieska otoczona białą obwódką, policzki białe a wokół nich biegnie ciemnoniebieski paseczek łączący się na karku. Skrzydła i ogon niebieskie, grzbiet oliwkowy, pierś i brzuch żółte. Często odzywa się dzwoniącymi trelami. Modraszka przebywa u nas przez cały rok, choć w rzeczywistości część ptaków odlatuje, a inne przybywają na zimę z północy i wschodu Europy.",
-		"photo": "img/animal-s.jpg",
+		"photo": "src/img/animal-s.jpg",
 		"facts": "Lęg: 10-12 białych, czerwono nakrapianych jaj. Wysiadywanie: 12-14 dni. Młode opuszczają gniazdo po 17-18 dniach"
 	},
 	{
