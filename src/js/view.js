@@ -8,6 +8,16 @@ export const overlay = document.querySelector('.overlay')
 export const addBirdWindow = document.querySelector('.add-bird')
 export const buttonAddBird = document.querySelector('.search__buttons--add')
 export const buttonSearchSubmit = document.querySelector('.search__buttons--submit')
+const burgerButton = document.querySelector('.burger-button')
+export const errorMessageButton = document.querySelector('.error-window__button')
+export const errorMessage = document.querySelector('.error-window')
+
+export const getUserPosition = function () {
+	if (navigator.geolocation)
+		navigator.geolocation.getCurrentPosition(showPosition, function () {
+			alert('Could not get your position. Try again!')
+		})
+}
 
 const showPosition = function (position) {
 	const { latitude } = position.coords
@@ -20,16 +30,8 @@ const showPosition = function (position) {
 	}).addTo(map)
 
 	map.on('click', displaySearchWindow)
-
 	// const layer = L.marker(coords).addTo(map)
 	// layer.addTo(map)
-}
-
-export const getUserPosition = function () {
-	if (navigator.geolocation)
-		navigator.geolocation.getCurrentPosition(showPosition, function () {
-			alert('Could not get your position. Try again!')
-		})
 }
 
 export const renderResult = function (result) {
@@ -72,4 +74,17 @@ export function closeWindow(el, target) {
 	})
 }
 
+export const searchBirds = function (handler) {
+	buttonSearchSubmit.addEventListener('click', handler)
+}
 
+export const showBurgerButon = function (handler) {
+	burgerButton.addEventListener('click', () => handler.classList.toggle('navigation__items--active'))
+}
+
+export const showErrorWindow = function () {
+	errorMessageButton.addEventListener('click', () => {
+		searchWindow.style.display = 'flex'
+		errorMessage.style.display = 'none'
+	})
+}

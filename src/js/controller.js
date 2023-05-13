@@ -1,4 +1,3 @@
-
 import * as model from './model.js'
 import {
 	renderResult,
@@ -10,23 +9,24 @@ import {
 	searchWindow,
 	overlay,
 	addBirdWindow,
-	buttonSearchSubmit,getUserPosition
+	buttonSearchSubmit,
+	getUserPosition,
+	searchBirds,
+	showBurgerButon,
+	showErrorWindow,
+	errorMessage,
 } from './view.js'
 
 let date = new Date()
 let userInput = document.querySelector('.search__input')
 
 const closeResultsButton = document.querySelector('.search-results__close')
-const errorMessage = document.querySelector('.error-window')
-const errorMessageButton = document.querySelector('.error-window__button')
+
 const errorWindowText = document.querySelector('.error-window__text')
 const closeSearchButton = document.querySelector('.search__close')
 const buttonCloseAddWindow = document.querySelector('.add-bird__close')
 const navBar = document.querySelector('.navigation__items')
-const burgerButton = document.querySelector('.burger-button')
 const mainMapContainer = document.querySelector('.main-container')
-
-
 
 const renderList = async function () {
 	try {
@@ -48,9 +48,11 @@ const renderList = async function () {
 	}
 }
 
-function init() {
+
+
+const init = function () {
 	getUserPosition()
-	burgerButton.addEventListener('click', () => navBar.classList.toggle('navigation__items--active'))
+	showBurgerButon(navBar)
 	closeWindow(closeSearchButton, searchWindow)
 	closeWindow(overlay, searchWindow)
 	closeWindow(buttonCloseAddWindow, addBirdWindow)
@@ -60,11 +62,8 @@ function init() {
 	closeWindow(overlay, errorMessage)
 	closeWindow(closeResultsButton, mainContainerResults)
 	displayAddWindow()
-	buttonSearchSubmit.addEventListener('click', renderList)
-	errorMessageButton.addEventListener('click', () => {
-		searchWindow.style.display = 'flex'
-		errorMessage.style.display = 'none'
-	})
+	searchBirds(renderList)
+	showErrorWindow()
 }
 
 init()
