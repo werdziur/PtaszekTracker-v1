@@ -321,7 +321,6 @@ body {
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 	transition: all 0.5s;
 	z-index: 2000;
-	
 
 	&__result {
 		background-color: colors.$ecru;
@@ -337,8 +336,6 @@ body {
 			justify-content: flex-end;
 			right: 10px;
 			padding: 0.5rem;
-			width: 20px;
-			height: 20px;
 		}
 	}
 
@@ -349,6 +346,11 @@ body {
 
 	&__container {
 		margin-top: 20px;
+		margin-top: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		width: 80vw;
+		justify-content: center;
 	}
 
 	&__heading {
@@ -430,7 +432,40 @@ body {
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 	transition: all 0.5s;
 	z-index: 2000;
-	
+
+	&__options {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		background-color: colors.$ecru;
+		height: 50px;
+		width: 90vw;
+		border-radius: 9px;
+		padding: 1rem;
+		box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+		margin: 2rem 0 1rem 0;
+
+		&--name,
+		&--date {
+			font-size: 1.4rem;
+			height: 2.5rem;
+			width: 8rem;
+			padding: 1rem;
+			text-align: center;
+			border: 1px solid colors.$green;
+			border-radius: 10px;
+			background-color: colors.$light-green;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&--sort {
+			padding: .2rem;
+			font-size: 1.4rem;
+		}
+	}
 
 	&__result {
 		background-color: colors.$ecru;
@@ -442,8 +477,6 @@ body {
 		margin: 1rem 0 1rem 0;
 
 		&--icon {
-			width: 20px;
-			height: 20px;
 			display: flex;
 			justify-content: flex-end;
 			right: 10px;
@@ -458,6 +491,10 @@ body {
 
 	&__container {
 		margin-top: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		width: 80vw;
+		justify-content: center;
 	}
 
 	&__heading {
