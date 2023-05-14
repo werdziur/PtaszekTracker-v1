@@ -61,6 +61,20 @@
 
     <div class="overlay"></div>
 
+    <div class="search">
+        <div class="search__close"><i class="fa-regular fa-circle-xmark fa-xl" style="color: #418900"></i></div>
+        <p class="search__text">Search bird</p>
+        <div class="search__row"><label for="search__label"></label>
+            <input class="search__input" type="text" name="search" placeholder="Find Bird">
+            <button type="button" class="search__buttons--submit">Search</button>
+        </div>
+
+        <div class="search__buttons">
+            <p class="search__text">Or add your own bird</p>
+            <button class="search__buttons--add">Add your bird</button>
+        </div>
+    </div>
+
     <div class="search-results">
         <div class="search-results__close "><i class="fa-regular fa-circle-xmark fa-xl" style="color: #418900"></i>
         </div>
@@ -88,19 +102,7 @@
 
     </div>
 
-    <div class="search">
-        <div class="search__close"><i class="fa-regular fa-circle-xmark fa-xl" style="color: #418900"></i></div>
-        <p class="search__text">Search bird</p>
-        <div class="search__row"><label for="search__label"></label>
-            <input class="search__input" type="text" name="search" placeholder="Find Bird">
-            <button type="button" class="search__buttons--submit">Search</button>
-        </div>
 
-        <div class="search__buttons">
-            <p class="search__text">Or add your own bird</p>
-            <button class="search__buttons--add">Add your bird</button>
-        </div>
-    </div>
 
     <div class="add-bird">
         <div class="add-bird__close "><i class="fa-regular fa-circle-xmark fa-xl" style="color: #418900"></i>
@@ -123,23 +125,33 @@
     </div>
 
 
-    <!-- <div class="birds-list">
+    <div class="birds-list">
         <div class="birds-list__close "><i class="fa-regular fa-circle-xmark fa-xl" style="color: #418900"></i>
         </div>
         <p class="birds-list__title">Your observations: </p>
 
-        <div class="bird-list__container"> -->
-    <!-- <div class="birds-list__result">
+        <div class="bird-list__container">
+
+            <div class="birds-list__result">
                 <div class="birds-list__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
                 <div class="birds-list__heading">
-                    <img src="img/animal-s.jpg" alt="Photo of the bird">
+                    <img src="src/img/alertness-l.jpg" alt="Photo of the bird">
                     <p class="birds-list__name">Modraszka</p>
                 </div>
             </div>
+
+            <div class="birds-list__result">
+                <div class="birds-list__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
+                <div class="birds-list__heading">
+                    <img src="src/img/blackbird-l.jpg" alt="Photo of the bird">
+                    <p class="birds-list__name">Modraszka</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
-//-->
+
     <footer class="footer"></footer>
 
 

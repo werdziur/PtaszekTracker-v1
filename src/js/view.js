@@ -11,6 +11,8 @@ export const buttonSearchSubmit = document.querySelector('.search__buttons--subm
 const burgerButton = document.querySelector('.burger-button')
 export const errorMessageButton = document.querySelector('.error-window__button')
 export const errorMessage = document.querySelector('.error-window')
+export const listOfObservations = document.querySelector('.birds-list')
+export const closeButtonObservations = document.querySelector('.birds-list__close')
 
 
 
@@ -42,20 +44,20 @@ export const renderResult = function (result) {
 	searchResultsContainer.insertAdjacentHTML('afterbegin', html)
 }
 
-export function displaySearchWindow() {
-	searchWindow.style.display = 'flex'
-	overlay.style.display = 'block'
+export const displaySearchWindow = () => {
+    searchWindow.style.display = 'flex'
+    overlay.style.display = 'block'
 }
 
-export function displayAddWindow() {
-	buttonAddBird.addEventListener('click', () => {
-		searchWindow.style.display = 'none'
-		addBirdWindow.style.display = 'flex'
-		overlay.style.display = 'block'
-	})
+export const displayAddWindow = () => {
+    buttonAddBird.addEventListener('click', () => {
+        searchWindow.style.display = 'none'
+        addBirdWindow.style.display = 'flex'
+        overlay.style.display = 'block'
+    })
 }
 
-export function closeWindow(el, target) {
+export const closeWindow = function (el, target) {
 	el.addEventListener('click', () => {
 		if (el === buttonSearchSubmit) {
 			target.style.display = 'none'
@@ -67,6 +69,12 @@ export function closeWindow(el, target) {
 			searchResultsContainer.innerHTML = ''
 		}
 	})
+}
+
+export const closeListOfObservations = function() {
+    closeButtonObservations.addEventListener('click', () => {
+        listOfObservations.style.display = 'none'
+    })
 }
 
 export const searchBirds = function (handler) {
