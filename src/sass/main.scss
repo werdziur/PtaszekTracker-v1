@@ -321,7 +321,6 @@ body {
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 	transition: all 0.5s;
 	z-index: 2000;
-	// scroll-behavior: smooth;
 
 	&__result {
 		background-color: colors.$ecru;
@@ -347,6 +346,11 @@ body {
 
 	&__container {
 		margin-top: 20px;
+		margin-top: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		width: 80vw;
+		justify-content: center;
 	}
 
 	&__heading {
@@ -410,6 +414,106 @@ body {
 		right: 10px;
 		padding: 0.5rem;
 	}
+}
+
+//list
+.birds-list {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100vh;
+	width: 100vw;
+	background-color: colors.$creame;
+	padding: 2rem;
+	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+	transition: all 0.5s;
+	z-index: 2000;
+
+	&__options {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		background-color: colors.$ecru;
+		height: 50px;
+		width: 90vw;
+		border-radius: 9px;
+		padding: 1rem;
+		box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+		margin: 2rem 0 1rem 0;
+
+		&--name,
+		&--date {
+			font-size: 1.4rem;
+			height: 2.5rem;
+			width: 8rem;
+			padding: 1rem;
+			text-align: center;
+			border: 1px solid colors.$green;
+			border-radius: 10px;
+			background-color: colors.$light-green;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&--sort {
+			padding: .2rem;
+			font-size: 1.4rem;
+		}
+	}
+
+	&__result {
+		background-color: colors.$ecru;
+		height: 100px;
+		width: 200px;
+		border-radius: 9px;
+		padding: 1rem;
+		box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+		margin: 1rem 0 1rem 0;
+
+		&--icon {
+			display: flex;
+			justify-content: flex-end;
+			right: 10px;
+			padding: 0.5rem;
+		}
+	}
+
+	&__close {
+		align-self: flex-end;
+		padding: 0.5rem;
+	}
+
+	&__container {
+		margin-top: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		width: 80vw;
+		justify-content: center;
+	}
+
+	&__heading {
+		display: flex;
+		align-items: center;
+	}
+
+	&__name {
+		font-size: 1.5rem;
+		display: inline;
+		margin-left: 7px;
+		padding: 0.5rem;
+	}
+}
+
+.birds-list img {
+	width: 80px;
+	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+	border-radius: 9px;
 }
 
 //footer
