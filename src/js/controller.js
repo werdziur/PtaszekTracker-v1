@@ -10,11 +10,11 @@ import {
 	overlay,
 	addBirdWindow,
 	buttonSearchSubmit,
-	getUserPosition,
 	searchBirds,
 	showBurgerButon,
 	showErrorWindow,
 	errorMessage,
+	showPosition
 } from './view.js'
 
 let date = new Date()
@@ -51,7 +51,7 @@ const renderList = async function () {
 
 
 const init = function () {
-	getUserPosition()
+	model.getUserPosition(showPosition)
 	showBurgerButon(navBar)
 	closeWindow(closeSearchButton, searchWindow)
 	closeWindow(overlay, searchWindow)

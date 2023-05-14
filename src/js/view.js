@@ -12,14 +12,9 @@ const burgerButton = document.querySelector('.burger-button')
 export const errorMessageButton = document.querySelector('.error-window__button')
 export const errorMessage = document.querySelector('.error-window')
 
-export const getUserPosition = function () {
-	if (navigator.geolocation)
-		navigator.geolocation.getCurrentPosition(showPosition, function () {
-			alert('Could not get your position. Try again!')
-		})
-}
 
-const showPosition = function (position) {
+
+export const showPosition = function (position) {
 	const { latitude } = position.coords
 	const { longitude } = position.coords
 	const coords = [latitude, longitude]

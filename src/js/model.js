@@ -3,7 +3,12 @@ export const state = {
 	bird: {},
 }
 
-
+export const getUserPosition = function (showMap) {
+	if (navigator.geolocation)
+		navigator.geolocation.getCurrentPosition(showMap, function () {
+			alert('Could not get your position. Try again!')
+		})
+}
 
 export const loadResult = async function (userInput) {
 	try {
