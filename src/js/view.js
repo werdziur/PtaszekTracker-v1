@@ -14,7 +14,7 @@ export const errorMessage = document.querySelector('.error-window')
 export const listOfObservations = document.querySelector('.birds-list')
 export const closeButtonObservations = document.querySelector('.birds-list__close')
 export const navigationItemList = document.querySelector('.navigation__item--list')
-export const observationsList = document.querySelector('.birds-list')
+const observationsContainer = document.querySelector('.birds-list__container')
 const addBirdButton = document.querySelector('search-results__result--icon')
 
 export const showPosition = function (position) {
@@ -95,9 +95,17 @@ export const showErrorWindow = function () {
 
 export const showObservationList = function (handler) {
 	navigationItemList.addEventListener('click', () => {
-		observationsList.style.display = 'flex'
+		listOfObservations.style.display = 'flex'
 		handler.classList.remove('navigation__items--active')
 	})
 }
 
-export const addSelectedBird = function () {}
+export const addSelectedBird = function () {
+	searchResultsContainer.addEventListener('click', e => {
+		const chosenBird = e.target.closest('.search-results__result')
+		if (!chosenBird) return
+		observationsContainer.insertAdjacentElement('afterbegin', chosenBird)
+	})
+}
+
+addSelectedBird()
