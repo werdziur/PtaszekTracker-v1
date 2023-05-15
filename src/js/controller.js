@@ -14,7 +14,7 @@ import {
 	showBurgerButon,
 	showErrorWindow,
 	errorMessage,
-	showPosition, closeListOfObservations
+	showPosition, closeListOfObservations, showObservationList
 } from './view.js'
 
 let date = new Date()
@@ -65,6 +65,7 @@ const init = function () {
 	searchBirds(renderList)
 	showErrorWindow()
 	closeListOfObservations()
+	showObservationList(navBar)
 }
 
 init()
