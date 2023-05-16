@@ -14,7 +14,7 @@ export const errorMessage = document.querySelector('.error-window')
 export const listOfObservations = document.querySelector('.birds-list')
 export const closeButtonObservations = document.querySelector('.birds-list__close')
 export const navigationItemList = document.querySelector('.navigation__item--list')
-const observationsContainer = document.querySelector('.birds-list__container')
+export let observationsContainer = document.querySelector('.birds-list__container')
 const addBirdButton = document.querySelector('search-results__result--icon')
 
 export const showPosition = function (position) {
@@ -33,7 +33,7 @@ export const showPosition = function (position) {
 }
 
 export const renderResult = function (result) {
-	let html = `<li class="search-results__result" data-id="${id}">
+	let html = `<li class="search-results__result" data-name="${result.name}">
 					<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
 					<div class="search-results__heading">
     					<img src="${result.photo}" alt="Photo of the bird">
@@ -100,12 +100,26 @@ export const showObservationList = function (handler) {
 	})
 }
 
-export const addSelectedBird = function () {
+//choose bird from search list
+
+export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
-		const chosenBird = e.target.closest('.search-results__result')
+		observationsContainer.innerHTML = '';
+		const chosenBird = e.target.closest('[data-name]')
 		if (!chosenBird) return
-		observationsContainer.insertAdjacentElement('afterbegin', chosenBird)
+		return handler(chosenBird.dataset)
 	})
 }
 
-addSelectedBird()
+
+export const renderSelectedBird = function (bird) {
+	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${id}" >
+	<div class="birds-list__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
+	<div class="birds-list__heading">
+		<img src="${bird.photo}" alt="Photo of the bird">
+		<p class="birds-list__name">${bird.name}</p>
+	</div>
+</div>`
+
+	observationsContainer.insertAdjacentHTML('afterbegin', html)
+}
