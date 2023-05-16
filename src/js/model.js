@@ -1,6 +1,6 @@
-
 export const state = {
 	bird: {},
+	observations: [],
 }
 
 export const getUserPosition = function (showMap) {
@@ -20,4 +20,9 @@ export const loadResult = async function (userInput) {
 	} catch (error) {
 		console.error(`${error} :(!!`)
 	}
+}
+
+export const birdToBeAdded = function (bird) {
+	state.observations.push(bird)
+	state.bird = {}
 }
