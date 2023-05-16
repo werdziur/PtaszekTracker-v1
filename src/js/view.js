@@ -21,15 +21,41 @@ export const showPosition = function (position) {
 	const { latitude } = position.coords
 	const { longitude } = position.coords
 	const coords = [latitude, longitude]
-	let map = L.map('map').setView(coords, MAP_SIZE)
+
+	const map = L.map('map').setView(coords, MAP_SIZE)
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: MAP_ZOOM,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	}).addTo(map)
 
-	map.on('click', displaySearchWindow)
-	// const layer = L.marker(coords).addTo(map)
-	// layer.addTo(map)
+	//showing search form
+	// map.on('click', displaySearchWindow)
+
+	//getting coords for bird
+	map.on('click', mapEvent => {
+		renderMarker(mapEvent, map)
+	})
+}
+
+const renderMarker = function (mapEvent, map) {
+	console.log('clicked')
+	const { lat } = mapEvent.latlng
+	const { lng } = mapEvent.latlng
+	console.log(lat, lng)
+
+	let layer = L.marker([lat, lng])
+		.addTo(map)
+		.bindPopup(
+			L.popup({
+				maxWidth: 250,
+				minWidth: 100,
+				autoClose: false,
+				closeOnClick: false,
+				className: 'popup',
+			})
+		)
+		.setPopupContent('nowy ptaszek')
+		.openPopup()
 }
 
 export const renderResult = function (result) {
@@ -104,17 +130,18 @@ export const showObservationList = function (handler) {
 
 export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
-		observationsContainer.innerHTML = '';
+		observationsContainer.innerHTML = ''
 		const chosenBird = e.target.closest('[data-name]')
 		if (!chosenBird) return
+		mainContainerResults.style.display = 'none'
+		overlay.style.display = 'none'
 		return handler(chosenBird.dataset)
 	})
 }
 
-
 export const renderSelectedBird = function (bird) {
 	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${id}" >
-	<div class="birds-list__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
+	<div class="birds-list__result--icon"><i class="fa-regular fa-trash-can fa-lg" style="color: #418900;"></i></div>
 	<div class="birds-list__heading">
 		<img src="${bird.photo}" alt="Photo of the bird">
 		<p class="birds-list__name">${bird.name}</p>

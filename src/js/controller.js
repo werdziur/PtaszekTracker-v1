@@ -19,7 +19,7 @@ import {
 	showObservationList,
 	addSelectedBird,
 	renderSelectedBird,
-	observationsContainer,
+	observationsContainer
 } from './view.js'
 
 let date = new Date()
@@ -55,12 +55,13 @@ const renderList = async function () {
 
 const updateObservationsList = function (birdName) {
 	const bird = model.state.bird.filter(el => el.name === birdName.name)
-	model.birdToBeAdded(bird)
+	model.addChosenBirdToObservations(bird)
 	model.state.observations.forEach(el => {
 		renderSelectedBird(...el)
 	})
 
 	console.log(model.state.observations)
+	
 }
 
 const init = function () {
