@@ -27,6 +27,7 @@ export const addChosenBirdToObservations = function (bird, marker) {
 	state.observations.push(bird)
 	state.markers.push(marker)
 	state.bird = {}
+	console.log(state.bird)
 }
 
 // export const saveCoords = function (layer) {

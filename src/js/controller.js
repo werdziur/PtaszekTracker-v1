@@ -65,6 +65,8 @@ const updateObservationsList = function (birdName, layer) {
 	model.state.observations.forEach(el => {
 		renderSelectedBird(...el)
 	})
+
+	console.log(model.state.bird)
 }
 
 const init = function () {
