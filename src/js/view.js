@@ -1,5 +1,20 @@
 import { MAP_SIZE, MAP_ZOOM } from './config.js'
 let id = Math.random() + ''
+let date = new Date()
+const months = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+]
 
 export const searchResultsContainer = document.querySelector('.search-results__container')
 export const mainContainerResults = document.querySelector('.search-results')
@@ -16,20 +31,26 @@ export const closeButtonObservations = document.querySelector('.birds-list__clos
 export const navigationItemList = document.querySelector('.navigation__item--list')
 export let observationsContainer = document.querySelector('.birds-list__container')
 const addBirdButton = document.querySelector('search-results__result--icon')
+let map
+let mapEvent
+let layer
 
 export const showPosition = function (position) {
+	//setting the map view
 	const { latitude } = position.coords
 	const { longitude } = position.coords
 	const coords = [latitude, longitude]
-	let map = L.map('map').setView(coords, MAP_SIZE)
+	map = L.map('map').setView(coords, MAP_SIZE)
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: MAP_ZOOM,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	}).addTo(map)
 
-	map.on('click', displaySearchWindow)
-	// const layer = L.marker(coords).addTo(map)
-	// layer.addTo(map)
+	//getting coords for bird marker
+	map.on('click', mapE => {
+		mapEvent = mapE
+		displaySearchWindow()
+	})
 }
 
 export const renderResult = function (result) {
@@ -100,21 +121,56 @@ export const showObservationList = function (handler) {
 	})
 }
 
-//choose bird from search list
+//choose bird from search list and add to the list of observations
 
 export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
-		observationsContainer.innerHTML = '';
+		//clear list of observations
+		observationsContainer.innerHTML = ''
+
+		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
 		if (!chosenBird) return
+
+		//close search results container
+		mainContainerResults.style.display = 'none'
+		overlay.style.display = 'none'
+		//render marker on the map and save birds coords, return bird sataset and coords
+
 		return handler(chosenBird.dataset)
 	})
 }
 
+export const renderMarker = function (bird) {
+	const { lat, lng } = mapEvent.latlng
+	layer = L.marker([lat, lng])
+		.addTo(map)
+		.bindPopup(
+			L.popup({
+				maxWidth: 250,
+				minWidth: 100,
+				autoClose: false,
+				closeOnClick: false,
+				className: 'popup',
+			})
+		)
+		.setPopupContent(
+			`🪶 ${bird.name.toUpperCase()} on ${
+				months[date.getMonth()]
+			} ${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+		)
+		.openPopup()
+
+	return layer
+}
+
+// export const setMarkerContent = function (bird) {
+// 	layer.setPopupContent(`${bird}`).openPopup()
+// }
 
 export const renderSelectedBird = function (bird) {
 	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${id}" >
-	<div class="birds-list__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
+	<div class="birds-list__result--icon"><i class="fa-regular fa-trash-can fa-lg" style="color: #418900;"></i></div>
 	<div class="birds-list__heading">
 		<img src="${bird.photo}" alt="Photo of the bird">
 		<p class="birds-list__name">${bird.name}</p>
