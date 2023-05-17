@@ -16,13 +16,15 @@ export const closeButtonObservations = document.querySelector('.birds-list__clos
 export const navigationItemList = document.querySelector('.navigation__item--list')
 export let observationsContainer = document.querySelector('.birds-list__container')
 const addBirdButton = document.querySelector('search-results__result--icon')
+let map;
+let mapEvent;
 
 export const showPosition = function (position) {
 	const { latitude } = position.coords
 	const { longitude } = position.coords
 	const coords = [latitude, longitude]
 
-	const map = L.map('map').setView(coords, MAP_SIZE)
+	map = L.map('map').setView(coords, MAP_SIZE)
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: MAP_ZOOM,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -32,15 +34,15 @@ export const showPosition = function (position) {
 	// map.on('click', displaySearchWindow)
 
 	//getting coords for bird
-	map.on('click', mapEvent => {
-		renderMarker(mapEvent, map)
+	map.on('click', mapE => {
+		mapEvent = mapE;
+		renderMarker()
 	})
 }
 
-const renderMarker = function (mapEvent, map) {
+export const renderMarker = function () {
 	console.log('clicked')
-	const { lat } = mapEvent.latlng
-	const { lng } = mapEvent.latlng
+	const { lat, lng } = mapEvent.latlng
 	console.log(lat, lng)
 
 	let layer = L.marker([lat, lng])
@@ -56,6 +58,8 @@ const renderMarker = function (mapEvent, map) {
 		)
 		.setPopupContent('nowy ptaszek')
 		.openPopup()
+
+		return layer;
 }
 
 export const renderResult = function (result) {
@@ -126,7 +130,7 @@ export const showObservationList = function (handler) {
 	})
 }
 
-//choose bird from search list
+//choose bird from search list and add to the list of observations
 
 export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {

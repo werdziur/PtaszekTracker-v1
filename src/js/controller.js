@@ -64,7 +64,10 @@ const updateObservationsList = function (birdName) {
 	
 }
 
+
+
 const init = function () {
+	
 	addSelectedBird(updateObservationsList)
 	model.getUserPosition(showPosition)
 	showBurgerButon(navBar)
