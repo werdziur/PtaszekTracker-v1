@@ -1,7 +1,7 @@
 export const state = {
 	bird: {},
 	observations: [],
-	layers: []
+	markers: []
 }
 
 export const getUserPosition = function (showMap) {
@@ -23,8 +23,9 @@ export const loadResult = async function (userInput) {
 	}
 }
 
-export const addChosenBirdToObservations = function (bird) {
+export const addChosenBirdToObservations = function (bird, marker) {
 	state.observations.push(bird)
+	state.markers.push(marker)
 	state.bird = {}
 }
 

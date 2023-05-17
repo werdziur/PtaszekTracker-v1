@@ -16,50 +16,25 @@ export const closeButtonObservations = document.querySelector('.birds-list__clos
 export const navigationItemList = document.querySelector('.navigation__item--list')
 export let observationsContainer = document.querySelector('.birds-list__container')
 const addBirdButton = document.querySelector('search-results__result--icon')
-let map;
-let mapEvent;
+let map
+let mapEvent
 
 export const showPosition = function (position) {
+	//setting the map view
 	const { latitude } = position.coords
 	const { longitude } = position.coords
 	const coords = [latitude, longitude]
-
 	map = L.map('map').setView(coords, MAP_SIZE)
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: MAP_ZOOM,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	}).addTo(map)
 
-	//showing search form
-	// map.on('click', displaySearchWindow)
-
-	//getting coords for bird
+	//getting coords for bird marker
 	map.on('click', mapE => {
-		mapEvent = mapE;
-		renderMarker()
+		mapEvent = mapE
+		displaySearchWindow()
 	})
-}
-
-export const renderMarker = function () {
-	console.log('clicked')
-	const { lat, lng } = mapEvent.latlng
-	console.log(lat, lng)
-
-	let layer = L.marker([lat, lng])
-		.addTo(map)
-		.bindPopup(
-			L.popup({
-				maxWidth: 250,
-				minWidth: 100,
-				autoClose: false,
-				closeOnClick: false,
-				className: 'popup',
-			})
-		)
-		.setPopupContent('nowy ptaszek')
-		.openPopup()
-
-		return layer;
 }
 
 export const renderResult = function (result) {
@@ -134,13 +109,40 @@ export const showObservationList = function (handler) {
 
 export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
+		//clear list of observations
 		observationsContainer.innerHTML = ''
+
+		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
 		if (!chosenBird) return
+
+		//close search results container
 		mainContainerResults.style.display = 'none'
 		overlay.style.display = 'none'
-		return handler(chosenBird.dataset)
+		//render marker on the map and save birds coords, return bird sataset and coords
+		const layer = renderMarker()
+		console.log(layer)
+		return handler(chosenBird.dataset, layer)
 	})
+}
+
+export const renderMarker = function () {
+	const { lat, lng } = mapEvent.latlng
+	let layer = L.marker([lat, lng])
+		.addTo(map)
+		.bindPopup(
+			L.popup({
+				maxWidth: 250,
+				minWidth: 100,
+				autoClose: false,
+				closeOnClick: false,
+				className: 'popup',
+			})
+		)
+		.setPopupContent('nowy ptaszek')
+		.openPopup()
+
+	return layer;
 }
 
 export const renderSelectedBird = function (bird) {

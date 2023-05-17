@@ -19,14 +19,13 @@ import {
 	showObservationList,
 	addSelectedBird,
 	renderSelectedBird,
-	observationsContainer
+	observationsContainer,
 } from './view.js'
 
 let date = new Date()
 let userInput = document.querySelector('.search__input')
 
 const closeResultsButton = document.querySelector('.search-results__close')
-
 const errorWindowText = document.querySelector('.error-window__text')
 const closeSearchButton = document.querySelector('.search__close')
 const buttonCloseAddWindow = document.querySelector('.add-bird__close')
@@ -53,21 +52,16 @@ const renderList = async function () {
 	}
 }
 
-const updateObservationsList = function (birdName) {
+const updateObservationsList = function (birdName, layer) {
 	const bird = model.state.bird.filter(el => el.name === birdName.name)
-	model.addChosenBirdToObservations(bird)
+	const marker = layer
+	model.addChosenBirdToObservations(bird, marker)
 	model.state.observations.forEach(el => {
 		renderSelectedBird(...el)
 	})
-
-	console.log(model.state.observations)
-	
 }
 
-
-
 const init = function () {
-	
 	addSelectedBird(updateObservationsList)
 	model.getUserPosition(showPosition)
 	showBurgerButon(navBar)
