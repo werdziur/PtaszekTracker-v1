@@ -1,5 +1,20 @@
 import { MAP_SIZE, MAP_ZOOM } from './config.js'
 let id = Math.random() + ''
+let date = new Date()
+const months = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+]
 
 export const searchResultsContainer = document.querySelector('.search-results__container')
 export const mainContainerResults = document.querySelector('.search-results')
@@ -18,6 +33,7 @@ export let observationsContainer = document.querySelector('.birds-list__containe
 const addBirdButton = document.querySelector('search-results__result--icon')
 let map
 let mapEvent
+let layer
 
 export const showPosition = function (position) {
 	//setting the map view
@@ -120,15 +136,14 @@ export const addSelectedBird = function (handler) {
 		mainContainerResults.style.display = 'none'
 		overlay.style.display = 'none'
 		//render marker on the map and save birds coords, return bird sataset and coords
-		const layer = renderMarker()
-		console.log(layer)
-		return handler(chosenBird.dataset, layer)
+
+		return handler(chosenBird.dataset)
 	})
 }
 
-export const renderMarker = function () {
+export const renderMarker = function (bird) {
 	const { lat, lng } = mapEvent.latlng
-	let layer = L.marker([lat, lng])
+	layer = L.marker([lat, lng])
 		.addTo(map)
 		.bindPopup(
 			L.popup({
@@ -139,11 +154,19 @@ export const renderMarker = function () {
 				className: 'popup',
 			})
 		)
-		.setPopupContent('nowy ptaszek')
+		.setPopupContent(
+			`🪶 ${bird.name.toUpperCase()} on ${
+				months[date.getMonth()]
+			} ${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+		)
 		.openPopup()
 
-	return layer;
+	return layer
 }
+
+// export const setMarkerContent = function (bird) {
+// 	layer.setPopupContent(`${bird}`).openPopup()
+// }
 
 export const renderSelectedBird = function (bird) {
 	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${id}" >
