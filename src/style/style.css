@@ -414,7 +414,7 @@ body {
 }
 .birds-list__result {
   background-color: #fffbf3;
-  height: 100px;
+  height: 110px;
   width: 200px;
   border-radius: 9px;
   padding: 1rem;
@@ -422,12 +422,17 @@ body {
   margin: 1rem 0 1rem 0;
 }
 .birds-list__result--icon {
+  margin-top: 0px;
+  right: 10px;
+  padding: 0.5rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 5px;
-  right: 10px;
-  padding: 0.5rem;
+}
+.birds-list__result--date {
+  padding: 5px;
+  margin-right: 30px;
+  font-size: 1rem;
 }
 .birds-list__close {
   align-self: flex-end;

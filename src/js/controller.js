@@ -19,9 +19,9 @@ import {
 	showObservationList,
 	addSelectedBird,
 	renderSelectedBird,
-	observationsContainer, renderMarker
+	observationsContainer,
+	renderMarker,
 } from './view.js'
-
 
 let userInput = document.querySelector('.search__input')
 
@@ -55,18 +55,15 @@ const renderList = async function () {
 const updateObservationsList = function (birdName, layer) {
 	//filter for a bird
 	const bird = model.state.bird.filter(el => el.name === birdName.name)
-
-	//take marker data and render marker 
+	console.log(bird)
+	//take marker data and render marker
 	layer = renderMarker(birdName)
-	
-	
+
 	//update state and render bird on the obersvation list
 	model.addChosenBirdToObservations(bird, layer)
 	model.state.observations.forEach(el => {
 		renderSelectedBird(...el)
 	})
-
-	console.log(model.state.bird)
 }
 
 const init = function () {

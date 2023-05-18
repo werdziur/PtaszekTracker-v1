@@ -80,14 +80,14 @@
 		"name": "kos",
 		"id": "",
 		"description": "Długość ciała: 24-27 cm. Czarno ubarwiony ptak ze stosunkowo długim ogonem (co odróżnia go od szpaka) i pomarańczowym dziobem. Samica brunatna, plamkowana od spodu. Kos był pierwotnie ptakiem typowo leśnym, a obecnie występuje licznie w różnych środowiskach, także w zieleni miejskiej, parkach, ogródkach działkowych i dzielnicach willowych.",
-		"photo": "",
+		"photo": "src/img/animal-s.jpg",
 		"facts": "Lęg: 5-6 zielonkawych, rdzawo plamkowanych jaj. Wysiadywanie: 12-14 dni. Młode opuszczają gniazdo po 13-14 dniach"
 	},
 	{
 		"name": "kukułka",
 		"id": "",
 		"description": "Długość ciała: 32-38 cm. Ptak wielkości pustułki, o długim ogonie i zaostrzonych skrzydłach. Ubarwieniem przypomina krogulca, gdyż ma szary wierzch ciała i pierś oraz prążkowany brzuch. Samice występują w dwóch odmianach, z których jedna jest podobna do samca, a druga jest ubarwiona rdzawo.",
-		"photo": "",
+		"photo": "src/img/pigeon-l.jpg",
 		"facts": "Kukułka słynie ze zwyczaju podrzucania swych jaj do gniazd drobnych ptaków wróblowych. Każda samica znosi jedno jajo do gniazda tego gatunku, którego jaja są podobne do jej własnych. Są to najczęściej gniazda świergotków, pliszek, pokrzewek, gąsiorków, trzcinniczków, itp. Pisklę kukułki po wykluciu usuwa inne jaja lub pisklęta z gniazda i jest karmione przez przybranych rodziców."
 	},
 	{
@@ -126,28 +126,28 @@
 		"facts": "Mimo swego jaskrawego ubarwienia niełatwo go zauważyć gdy w bezruchu czatuje na zdobycz. Łowi ryby i wodne owady rzucając się do wody z nadwodnego posterunku. Lata szybkim, prostoliniowym lotem, zwykle nisko nad wodą, odzywając się wysokim przenikliwym głosem."
 	},
 	{
-		"name": "mruk",
+		"name": "kruk",
 		"id": "",
 		"description": "Znacznie większy i masywniejszy od gawrona. W locie różni się od niego dużą głową z mocnym dziobem, długimi skrzydłami o rozpiętości zbliżonej do myszołowa i długim klinowatym ogonem. Ubarwienie całkowicie czarne z metalicznym połyskiem.",
 		"photo": "",
 		"facts": "Kruk jest jednym z najwcześniej przystępujących do lęgów ptaków w naszym kraju, często składa jaja już na początku marca."
 	},
 	{
-		"name": "mąsiorek",
+		"name": "gąsiorek",
 		"id": "",
 		"description": "Długość ciała: 16-18 cm. Ptak większy od wróbla z dłuższym ogonem. Samiec jest łatwo rozpoznawalny po czarnej masce na popielatej głowie i rdzawobrązowym wierzchu ciała. Spód z beżowym nalotem. Ogon czarny z białymi skrajami u nasady. Samica o podobnym schemacie ubarwienia, ale mniej skontrastowana z łuskowanym wzorem na spodzie ciała.",
 		"photo": "",
 		"facts": "Gąsiorek często przesiaduje na odkrytym posterunku, skąd obserwuje okolicę wypatrując zdobyczy. Jak na swe niewielkie rozmiary potrafi schwytać zaskakująco duże ofiary, ledwie ustępujące mu wielkością."
 	},
 	{
-		"name": "mymówka",
+		"name": "dymówka",
 		"id": "",
 		"description": "Długość ciała: 17-23 cm. Niewielki, smukły ptak o granatowo połyskującym czarnym wierzchu ciała i białawym lub jasnopomarańczowym spodzie. Gardło i czoło rdzawe, oddzielone od piersi czarną przepaską. Skrajne sterówki wydłużone, przez co ogon jest głęboko rozwidlony. Dymówka jest powszechnie znanym ptakiem, gdyż najczęściej gniazduje w zabudowaniach ludzkich. Nocuje w wielotysięcznych skupieniach w trzcinowiskach.",
 		"photo": "",
 		"facts": "Gniazdo: Czarka ulepiona z ziemi i przyklejona do pionowej ściany, wyścielona piórkami, z reguły we wnętrzu budynku"
 	},
 	{
-		"name": "mzyż",
+		"name": "czyż",
 		"id": "",
 		"description": "Drobny ptak, wyraźnie mniejszy i delikatniejszy od wróbla. Samiec z czarną czapeczką i plamka na gardle i szarymi policzkami. Reszta głowy, szyja i pierś żółte, brzuch biały, ciemno kreskowany. Kark i grzbiet zielonkawe, ciemno kreskowane. Na czarnym skrzydle dwa żółte paski i obrzeżenia lotek. Żółte również boki nasady ogona i kuper. Samica bez rysunku na głowie i znacznie mniej żółta.",
 		"photo": "",
