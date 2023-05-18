@@ -1,6 +1,6 @@
 import { MAP_SIZE, MAP_ZOOM } from './config.js'
-let id = Math.random() + ''
-let date = new Date()
+// let id = Math.random() + ''
+
 const months = [
 	'January',
 	'February',
@@ -142,7 +142,7 @@ export const addSelectedBird = function (handler) {
 	})
 }
 
-export const renderMarker = function (bird) {
+export const renderMarker = function (bird, date) {
 	const { lat, lng } = mapEvent.latlng
 	layer = L.marker([lat, lng])
 		.addTo(map)
@@ -156,7 +156,7 @@ export const renderMarker = function (bird) {
 			})
 		)
 		.setPopupContent(
-			`🪶 ${bird.name.toUpperCase()} on ${
+			`🪶 ${bird.toUpperCase()} on ${
 				months[date.getMonth()]
 			}, ${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
 		)
@@ -169,12 +169,13 @@ export const renderMarker = function (bird) {
 // }
 
 export const renderSelectedBird = function (bird) {
+	
 	const finalName = bird.name[0].toUpperCase()+ (bird.name).slice(1)
-	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${id}" >
+	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${bird.id}" >
 	<div class="birds-list__result--icon">
 		<div class="birds-list__result--date">${
-			months[date.getMonth()]
-		} ${date.getDate()}, ${date.getHours()}:${date.getMinutes()}</div>
+			months[bird.date.getMonth()]
+		} ${bird.date.getDate()}, ${bird.date.getHours()}:${bird.date.getMinutes()}</div>
 		<div class="birds-list__result--emoji"><i class="fa-regular fa-trash-can fa-lg" style="color: #418900;"></i></div>
 	</div>
 	<div class="birds-list__heading">
@@ -184,4 +185,10 @@ export const renderSelectedBird = function (bird) {
 </div>`
 
 	observationsContainer.insertAdjacentHTML('afterbegin', html)
+}
+
+
+
+const removeBirdFromList = function() {
+	observationsContainer.addEventListener()
 }

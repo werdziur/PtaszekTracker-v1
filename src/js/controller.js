@@ -55,15 +55,20 @@ const renderList = async function () {
 
 const updateObservationsList = function (birdName, layer) {
 	//filter for a bird
-	const bird = model.state.bird.filter(el => el.name === birdName.name)
+	const [bird] = model.state.bird.filter(el => el.name === birdName.name)
+	bird.date = new Date();
+	bird.id = Math.random() + '';
+	console.log(bird.id)
 	//take marker data and render marker
-	layer = renderMarker(birdName)
+	layer = renderMarker(bird.name, bird.date)
 
 	//update state and render bird on the obersvation list
 	model.addChosenBirdToObservations(bird, layer)
 	model.state.observations.forEach(el => {
-		renderSelectedBird(...el)
+		renderSelectedBird(el)
 	})
+
+	console.log(model.state.observations)
 }
 
 const init = function () {
