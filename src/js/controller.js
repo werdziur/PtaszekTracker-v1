@@ -21,6 +21,7 @@ import {
 	renderSelectedBird,
 	observationsContainer,
 	renderMarker,
+	getBirdToBeRemoved,
 } from './view.js'
 
 let userInput = document.querySelector('.search__input')
@@ -58,7 +59,6 @@ const updateObservationsList = function (birdName, layer) {
 	const [bird] = model.state.bird.filter(el => el.name === birdName.name)
 	bird.date = new Date();
 	bird.id = Math.random() + '';
-	console.log(bird.id)
 	//take marker data and render marker
 	layer = renderMarker(bird.name, bird.date)
 
@@ -67,11 +67,18 @@ const updateObservationsList = function (birdName, layer) {
 	model.state.observations.forEach(el => {
 		renderSelectedBird(el)
 	})
-
-	console.log(model.state.observations)
 }
 
+
+const removeBirdElement = function(bird) {
+	console.log(bird.id)
+	model.removeBird(bird.id)
+}
+
+
+
 const init = function () {
+	getBirdToBeRemoved(removeBirdElement)
 	addSelectedBird(updateObservationsList)
 	model.getUserPosition(showPosition)
 	showBurgerButon(navBar)

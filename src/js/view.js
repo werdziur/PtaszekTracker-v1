@@ -189,6 +189,18 @@ export const renderSelectedBird = function (bird) {
 
 
 
-const removeBirdFromList = function() {
-	observationsContainer.addEventListener()
+export const getBirdToBeRemoved = function(handler) {
+	observationsContainer.addEventListener('click', (e) => {
+		const selectedBirdsId = e.target.closest('[data-id]')
+		if (!selectedBirdsId) return
+		selectedBirdsId.remove()
+
+		return handler(selectedBirdsId.dataset)
+	})
+}
+
+// getBirdToBeRemoved()
+
+const removeSelectedBird = function() {
+
 }
