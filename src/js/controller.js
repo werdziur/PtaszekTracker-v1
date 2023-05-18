@@ -71,7 +71,6 @@ const updateObservationsList = function (birdName, layer) {
 
 
 const removeBirdElement = function(bird) {
-	console.log(bird.id)
 	model.removeBird(bird.id)
 }
 
