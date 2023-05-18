@@ -1,7 +1,7 @@
 export const state = {
 	bird: {},
 	observations: [],
-	markers: []
+	markers: [],
 }
 
 export const getUserPosition = function (showMap) {
@@ -29,7 +29,18 @@ export const addChosenBirdToObservations = function (bird, marker) {
 	state.bird = {}
 }
 
-// export const saveCoords = function (layer) {
-// 	state.layers.push(coords)
+export const removeBird = function (id, marker) {
+	//bird
+	const birdIndex = state.observations.findIndex(el => el.id === id);
+	console.log(birdIndex)
+	state.observations.splice(birdIndex, 1)
+	//marker
+	state.markers[birdIndex].remove()
+	state.markers.splice(birdIndex, 1)
+
 	
-// }
+
+	console.log(state.markers)
+	console.log(state.observations)
+	
+}

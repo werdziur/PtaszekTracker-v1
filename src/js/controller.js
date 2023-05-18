@@ -19,9 +19,10 @@ import {
 	showObservationList,
 	addSelectedBird,
 	renderSelectedBird,
-	observationsContainer, renderMarker
+	observationsContainer,
+	renderMarker,
+	getBirdToBeRemoved,
 } from './view.js'
-
 
 let userInput = document.querySelector('.search__input')
 
@@ -41,7 +42,8 @@ const renderList = async function () {
 			errorMessage.style.display = 'flex'
 		}
 		if (userInput.value === '') {
-			return (errorMessage.style.display = 'flex')
+			errorWindowText.innerText = 'This field cannot be empty!'
+			errorMessage.style.display = 'flex'
 		} else {
 			birds.forEach(el => renderResult(el))
 		}
@@ -54,20 +56,28 @@ const renderList = async function () {
 
 const updateObservationsList = function (birdName, layer) {
 	//filter for a bird
-	const bird = model.state.bird.filter(el => el.name === birdName.name)
+	const [bird] = model.state.bird.filter(el => el.name === birdName.name)
+	bird.date = new Date();
+	bird.id = Math.random() + '';
+	//take marker data and render marker
+	layer = renderMarker(bird.name, bird.date)
 
-	//take marker data and render marker 
-	layer = renderMarker(birdName)
-	
-	
 	//update state and render bird on the obersvation list
 	model.addChosenBirdToObservations(bird, layer)
 	model.state.observations.forEach(el => {
-		renderSelectedBird(...el)
+		renderSelectedBird(el)
 	})
 }
 
+
+const removeBirdElement = function(bird) {
+	model.removeBird(bird.id)
+}
+
+
+
 const init = function () {
+	getBirdToBeRemoved(removeBirdElement)
 	addSelectedBird(updateObservationsList)
 	model.getUserPosition(showPosition)
 	showBurgerButon(navBar)

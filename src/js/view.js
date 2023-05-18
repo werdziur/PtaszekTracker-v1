@@ -1,6 +1,6 @@
 import { MAP_SIZE, MAP_ZOOM } from './config.js'
-let id = Math.random() + ''
-let date = new Date()
+// let id = Math.random() + ''
+
 const months = [
 	'January',
 	'February',
@@ -30,7 +30,6 @@ export const listOfObservations = document.querySelector('.birds-list')
 export const closeButtonObservations = document.querySelector('.birds-list__close')
 export const navigationItemList = document.querySelector('.navigation__item--list')
 export let observationsContainer = document.querySelector('.birds-list__container')
-const addBirdButton = document.querySelector('search-results__result--icon')
 let map
 let mapEvent
 let layer
@@ -54,11 +53,12 @@ export const showPosition = function (position) {
 }
 
 export const renderResult = function (result) {
+	const finalName = result.name[0].toUpperCase()+ (result.name).slice(1)
 	let html = `<li class="search-results__result" data-name="${result.name}">
 					<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
 					<div class="search-results__heading">
     					<img src="${result.photo}" alt="Photo of the bird">
-    					<p class="search-results__name">${result.name}</p>
+    					<p class="search-results__name">${finalName}</p>
 					</div>
 				</li>`
 
@@ -127,6 +127,7 @@ export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
 		//clear list of observations
 		observationsContainer.innerHTML = ''
+		searchResultsContainer.innerHTML = ''
 
 		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
@@ -141,7 +142,7 @@ export const addSelectedBird = function (handler) {
 	})
 }
 
-export const renderMarker = function (bird) {
+export const renderMarker = function (bird, date) {
 	const { lat, lng } = mapEvent.latlng
 	layer = L.marker([lat, lng])
 		.addTo(map)
@@ -155,12 +156,11 @@ export const renderMarker = function (bird) {
 			})
 		)
 		.setPopupContent(
-			`🪶 ${bird.name.toUpperCase()} on ${
+			`🪶 ${bird.toUpperCase()} on ${
 				months[date.getMonth()]
-			} ${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+			}, ${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
 		)
 		.openPopup()
-
 	return layer
 }
 
@@ -169,13 +169,38 @@ export const renderMarker = function (bird) {
 // }
 
 export const renderSelectedBird = function (bird) {
-	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${id}" >
-	<div class="birds-list__result--icon"><i class="fa-regular fa-trash-can fa-lg" style="color: #418900;"></i></div>
+	
+	const finalName = bird.name[0].toUpperCase()+ (bird.name).slice(1)
+	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${bird.id}" >
+	<div class="birds-list__result--icon">
+		<div class="birds-list__result--date">${
+			months[bird.date.getMonth()]
+		} ${bird.date.getDate()}, ${bird.date.getHours()}:${bird.date.getMinutes()}</div>
+		<div class="birds-list__result--emoji"><i class="fa-regular fa-trash-can fa-lg" style="color: #418900;"></i></div>
+	</div>
 	<div class="birds-list__heading">
 		<img src="${bird.photo}" alt="Photo of the bird">
-		<p class="birds-list__name">${bird.name}</p>
+		<p class="birds-list__name">${finalName}</p>
 	</div>
 </div>`
 
 	observationsContainer.insertAdjacentHTML('afterbegin', html)
+}
+
+
+
+export const getBirdToBeRemoved = function(handler) {
+	observationsContainer.addEventListener('click', (e) => {
+		const selectedBirdsId = e.target.closest('[data-id]')
+		if (!selectedBirdsId) return
+		selectedBirdsId.remove()
+
+		return handler(selectedBirdsId.dataset)
+	})
+}
+
+// getBirdToBeRemoved()
+
+const removeSelectedBird = function() {
+
 }
