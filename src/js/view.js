@@ -54,7 +54,6 @@ export const showPosition = function (position) {
 
 export const renderResult = function (result) {
 	const finalName = result.name[0].toUpperCase()+ (result.name).slice(1)
-	console.log(finalName)
 	let html = `<li class="search-results__result" data-name="${result.name}">
 					<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
 					<div class="search-results__heading">

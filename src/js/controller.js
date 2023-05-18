@@ -41,7 +41,8 @@ const renderList = async function () {
 			errorMessage.style.display = 'flex'
 		}
 		if (userInput.value === '') {
-			return (errorMessage.style.display = 'flex')
+			errorWindowText.innerText = 'This field cannot be empty!'
+			errorMessage.style.display = 'flex'
 		} else {
 			birds.forEach(el => renderResult(el))
 		}
@@ -55,7 +56,6 @@ const renderList = async function () {
 const updateObservationsList = function (birdName, layer) {
 	//filter for a bird
 	const bird = model.state.bird.filter(el => el.name === birdName.name)
-	console.log(bird)
 	//take marker data and render marker
 	layer = renderMarker(birdName)
 
