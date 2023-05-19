@@ -33,7 +33,7 @@ export const observationsContainer = document.querySelector('.birds-list__contai
 export const successMessage = document.querySelector('.success-window')
 const successMessageButton = document.querySelector('.success-window__button')
 const successMessageText = document.querySelector('.success-window__text')
-const removeMessage = document.querySelector('.remove-window')
+export const removeMessage = document.querySelector('.remove-window')
 
 let map
 let mapEvent
@@ -95,6 +95,13 @@ export const closeWindow = function (el, target) {
 			overlay.style.display = 'none'
 			searchResultsContainer.innerHTML = ''
 		}
+	})
+}
+
+export const closeWindowDefault = function (el, target) {
+	el.addEventListener('click', () => {
+		target.style.display = 'none'
+		overlay.style.display = 'none'
 	})
 }
 
@@ -209,11 +216,12 @@ export const renderSelectedBird = function (bird) {
 }
 
 export const getBirdToBeRemoved = function (handler) {
-	let selectedBirdsId;
+	let selectedBirdsId
 	observationsContainer.addEventListener('click', e => {
 		selectedBirdsId = e.target.closest('[data-id]')
 		if (!selectedBirdsId) return
 		removeMessage.style.display = 'flex'
+		overlay.style.display = 'flex'
 	})
 
 	removeMessage.addEventListener('click', e => {
@@ -225,6 +233,7 @@ export const getBirdToBeRemoved = function (handler) {
 			closeRemoveMessage()
 			selectedBirdsId.remove()
 			successMessage.style.display = 'flex'
+			overlay.style.display = 'flex'
 			successMessageText.innerText = 'The bird has been removed from your list.'
 			return handler(selectedBirdsId.dataset)
 		}
