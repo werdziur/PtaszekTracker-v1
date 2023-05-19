@@ -30,6 +30,8 @@ export const listOfObservations = document.querySelector('.birds-list')
 export const closeButtonObservations = document.querySelector('.birds-list__close')
 export const navigationItemList = document.querySelector('.navigation__item--list')
 export let observationsContainer = document.querySelector('.birds-list__container')
+export const successMessage = document.querySelector('.success-window')
+const successMessageButton = document.querySelector('.success-window__button')
 let map
 let mapEvent
 let layer
@@ -53,7 +55,7 @@ export const showPosition = function (position) {
 }
 
 export const renderResult = function (result) {
-	const finalName = result.name[0].toUpperCase()+ (result.name).slice(1)
+	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
 	let html = `<li class="search-results__result" data-name="${result.name}">
 					<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
 					<div class="search-results__heading">
@@ -114,6 +116,14 @@ export const showErrorWindow = function () {
 	})
 }
 
+export const closeSuccessWindow = function () {
+	successMessageButton.addEventListener('click', () => {
+		// searchWindow.style.display = 'none'
+		successMessage.style.display = 'none'
+		overlay.style.display = 'none'
+	})
+}
+
 export const showObservationList = function (handler) {
 	navigationItemList.addEventListener('click', () => {
 		listOfObservations.style.display = 'flex'
@@ -136,8 +146,11 @@ export const addSelectedBird = function (handler) {
 		//close search results container
 		mainContainerResults.style.display = 'none'
 		overlay.style.display = 'none'
-		//render marker on the map and save birds coords, return bird sataset and coords
+		//show success window
+		successMessage.style.display = 'flex'
+		overlay.style.display = 'flex'
 
+		closeSuccessWindow()
 		return handler(chosenBird.dataset)
 	})
 }
@@ -169,8 +182,7 @@ export const renderMarker = function (bird, date) {
 // }
 
 export const renderSelectedBird = function (bird) {
-	
-	const finalName = bird.name[0].toUpperCase()+ (bird.name).slice(1)
+	const finalName = bird.name[0].toUpperCase() + bird.name.slice(1)
 	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${bird.id}" >
 	<div class="birds-list__result--icon">
 		<div class="birds-list__result--date">${
@@ -187,20 +199,12 @@ export const renderSelectedBird = function (bird) {
 	observationsContainer.insertAdjacentHTML('afterbegin', html)
 }
 
-
-
-export const getBirdToBeRemoved = function(handler) {
-	observationsContainer.addEventListener('click', (e) => {
+export const getBirdToBeRemoved = function (handler) {
+	observationsContainer.addEventListener('click', e => {
 		const selectedBirdsId = e.target.closest('[data-id]')
 		if (!selectedBirdsId) return
 		selectedBirdsId.remove()
 
 		return handler(selectedBirdsId.dataset)
 	})
-}
-
-// getBirdToBeRemoved()
-
-const removeSelectedBird = function() {
-
 }

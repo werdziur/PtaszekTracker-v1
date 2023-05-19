@@ -379,7 +379,7 @@ body {
 
 //error window
 
-.error-window {
+.error-window, .success-window {
 	position: fixed;
 	display: none;
 	flex-direction: column;
