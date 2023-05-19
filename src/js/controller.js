@@ -22,6 +22,7 @@ import {
 	observationsContainer,
 	renderMarker,
 	getBirdToBeRemoved,
+	successMessage,
 } from './view.js'
 
 let userInput = document.querySelector('.search__input')
@@ -83,6 +84,7 @@ const init = function () {
 	showBurgerButon(navBar)
 	closeWindow(closeSearchButton, searchWindow)
 	closeWindow(overlay, searchWindow)
+	closeWindow(overlay, successMessage)
 	closeWindow(buttonCloseAddWindow, addBirdWindow)
 	closeWindow(overlay, addBirdWindow)
 	closeWindow(buttonSearchSubmit, searchWindow)

@@ -29,7 +29,12 @@ export const errorMessage = document.querySelector('.error-window')
 export const listOfObservations = document.querySelector('.birds-list')
 export const closeButtonObservations = document.querySelector('.birds-list__close')
 export const navigationItemList = document.querySelector('.navigation__item--list')
-export let observationsContainer = document.querySelector('.birds-list__container')
+export const observationsContainer = document.querySelector('.birds-list__container')
+export const successMessage = document.querySelector('.success-window')
+const successMessageButton = document.querySelector('.success-window__button')
+const successMessageText = document.querySelector('.success-window__text')
+const removeMessage = document.querySelector('.remove-window')
+
 let map
 let mapEvent
 let layer
@@ -53,7 +58,7 @@ export const showPosition = function (position) {
 }
 
 export const renderResult = function (result) {
-	const finalName = result.name[0].toUpperCase()+ (result.name).slice(1)
+	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
 	let html = `<li class="search-results__result" data-name="${result.name}">
 					<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
 					<div class="search-results__heading">
@@ -114,11 +119,24 @@ export const showErrorWindow = function () {
 	})
 }
 
+export const closeSuccessWindow = function () {
+	successMessageButton.addEventListener('click', () => {
+		// searchWindow.style.display = 'none'
+		successMessage.style.display = 'none'
+		overlay.style.display = 'none'
+	})
+}
+
 export const showObservationList = function (handler) {
 	navigationItemList.addEventListener('click', () => {
 		listOfObservations.style.display = 'flex'
 		handler.classList.remove('navigation__items--active')
 	})
+}
+
+const closeRemoveMessage = function () {
+	removeMessage.style.display = 'none'
+	overlay.style.display = 'none'
 }
 
 //choose bird from search list and add to the list of observations
@@ -136,8 +154,12 @@ export const addSelectedBird = function (handler) {
 		//close search results container
 		mainContainerResults.style.display = 'none'
 		overlay.style.display = 'none'
-		//render marker on the map and save birds coords, return bird sataset and coords
+		//show success window
+		successMessage.style.display = 'flex'
+		successMessageText.innerText = 'The bird has been added to your list'
+		overlay.style.display = 'flex'
 
+		closeSuccessWindow()
 		return handler(chosenBird.dataset)
 	})
 }
@@ -169,8 +191,7 @@ export const renderMarker = function (bird, date) {
 // }
 
 export const renderSelectedBird = function (bird) {
-	
-	const finalName = bird.name[0].toUpperCase()+ (bird.name).slice(1)
+	const finalName = bird.name[0].toUpperCase() + bird.name.slice(1)
 	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${bird.id}" >
 	<div class="birds-list__result--icon">
 		<div class="birds-list__result--date">${
@@ -187,20 +208,28 @@ export const renderSelectedBird = function (bird) {
 	observationsContainer.insertAdjacentHTML('afterbegin', html)
 }
 
-
-
-export const getBirdToBeRemoved = function(handler) {
-	observationsContainer.addEventListener('click', (e) => {
-		const selectedBirdsId = e.target.closest('[data-id]')
+export const getBirdToBeRemoved = function (handler) {
+	let selectedBirdsId;
+	observationsContainer.addEventListener('click', e => {
+		selectedBirdsId = e.target.closest('[data-id]')
 		if (!selectedBirdsId) return
-		selectedBirdsId.remove()
+		removeMessage.style.display = 'flex'
+	})
 
-		return handler(selectedBirdsId.dataset)
+	removeMessage.addEventListener('click', e => {
+		if (e.target.closest('.remove-window__button--no')) {
+			closeRemoveMessage()
+			return
+		}
+		if (e.target.closest('.remove-window__button--yes')) {
+			closeRemoveMessage()
+			selectedBirdsId.remove()
+			successMessage.style.display = 'flex'
+			successMessageText.innerText = 'The bird has been removed from your list.'
+			return handler(selectedBirdsId.dataset)
+		}
 	})
 }
 
-// getBirdToBeRemoved()
-
-const removeSelectedBird = function() {
-
-}
+// const removeButtonYes = document.querySelector('.remove-window__button--yes')
+// const removeButtonNo = document.querySelector('.remove-window__button--no')
