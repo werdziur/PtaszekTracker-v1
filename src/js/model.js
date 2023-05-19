@@ -30,11 +30,12 @@ export const addChosenBirdToObservations = function (bird, marker) {
 }
 
 export const removeBird = function (id) {
+	console.log(id)
 	//bird
 	const birdIndex = state.observations.findIndex(el => el.id === id);
 	state.observations.splice(birdIndex, 1)
 	//marker
 	state.markers[birdIndex].remove()
 	state.markers.splice(birdIndex, 1)
-	
+	console.log(state.markers, state.observations)
 }

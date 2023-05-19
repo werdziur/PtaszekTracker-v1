@@ -168,7 +168,7 @@ body {
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(4px);
-	z-index: 1000;
+	z-index: 1900;
 	transition: all 0.5s;
 }
 
@@ -379,7 +379,7 @@ body {
 
 //error window
 
-.error-window, .success-window {
+.error-window, .success-window, .remove-window {
 	position: fixed;
 	display: none;
 	flex-direction: column;
@@ -436,7 +436,7 @@ body {
 	padding: 2rem;
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 	transition: all 0.5s;
-	z-index: 2000;
+	z-index: 1800;
 
 	&__options {
 		display: flex;

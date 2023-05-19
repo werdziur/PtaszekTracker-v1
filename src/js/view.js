@@ -29,9 +29,12 @@ export const errorMessage = document.querySelector('.error-window')
 export const listOfObservations = document.querySelector('.birds-list')
 export const closeButtonObservations = document.querySelector('.birds-list__close')
 export const navigationItemList = document.querySelector('.navigation__item--list')
-export let observationsContainer = document.querySelector('.birds-list__container')
+export const observationsContainer = document.querySelector('.birds-list__container')
 export const successMessage = document.querySelector('.success-window')
 const successMessageButton = document.querySelector('.success-window__button')
+const successMessageText = document.querySelector('.success-window__text')
+const removeMessage = document.querySelector('.remove-window')
+
 let map
 let mapEvent
 let layer
@@ -131,6 +134,11 @@ export const showObservationList = function (handler) {
 	})
 }
 
+const closeRemoveMessage = function () {
+	removeMessage.style.display = 'none'
+	overlay.style.display = 'none'
+}
+
 //choose bird from search list and add to the list of observations
 
 export const addSelectedBird = function (handler) {
@@ -148,6 +156,7 @@ export const addSelectedBird = function (handler) {
 		overlay.style.display = 'none'
 		//show success window
 		successMessage.style.display = 'flex'
+		successMessageText.innerText = 'The bird has been added to your list'
 		overlay.style.display = 'flex'
 
 		closeSuccessWindow()
@@ -200,11 +209,27 @@ export const renderSelectedBird = function (bird) {
 }
 
 export const getBirdToBeRemoved = function (handler) {
+	let selectedBirdsId;
 	observationsContainer.addEventListener('click', e => {
-		const selectedBirdsId = e.target.closest('[data-id]')
+		selectedBirdsId = e.target.closest('[data-id]')
 		if (!selectedBirdsId) return
-		selectedBirdsId.remove()
+		removeMessage.style.display = 'flex'
+	})
 
-		return handler(selectedBirdsId.dataset)
+	removeMessage.addEventListener('click', e => {
+		if (e.target.closest('.remove-window__button--no')) {
+			closeRemoveMessage()
+			return
+		}
+		if (e.target.closest('.remove-window__button--yes')) {
+			closeRemoveMessage()
+			selectedBirdsId.remove()
+			successMessage.style.display = 'flex'
+			successMessageText.innerText = 'The bird has been removed from your list.'
+			return handler(selectedBirdsId.dataset)
+		}
 	})
 }
+
+// const removeButtonYes = document.querySelector('.remove-window__button--yes')
+// const removeButtonNo = document.querySelector('.remove-window__button--no')
