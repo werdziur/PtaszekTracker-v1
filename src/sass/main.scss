@@ -379,7 +379,9 @@ body {
 
 //error window
 
-.error-window, .success-window, .remove-window {
+.error-window,
+.success-window,
+.remove-window {
 	position: fixed;
 	display: none;
 	flex-direction: column;
@@ -418,6 +420,34 @@ body {
 		justify-content: flex-end;
 		right: 10px;
 		padding: 0.5rem;
+	}
+}
+
+.remove-window {
+	&__buttons {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		margin-top: 10px;
+	}
+	&__button {
+		height: 4rem;
+		width: 10rem;
+		padding: 0.75rem;
+		font-size: 1.3rem;
+	}
+
+	&__text {
+		text-align: center;
+		padding: 1rem;
+		font-size: 1.5rem;
+	}
+	&__icon {
+		display: flex;
+		justify-content: flex-end;
+		right: 10px;
+		padding: 0.5rem;
+		margin-bottom: 5px;
 	}
 }
 

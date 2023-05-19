@@ -23,6 +23,7 @@ import {
 	renderMarker,
 	getBirdToBeRemoved,
 	successMessage,
+	removeMessage,
 } from './view.js'
 
 let userInput = document.querySelector('.search__input')
@@ -58,8 +59,8 @@ const renderList = async function () {
 const updateObservationsList = function (birdName, layer) {
 	//filter for a bird
 	const [bird] = model.state.bird.filter(el => el.name === birdName.name)
-	bird.date = new Date();
-	bird.id = Math.random() + '';
+	bird.date = new Date()
+	bird.id = Math.random() + ''
 	//take marker data and render marker
 	layer = renderMarker(bird.name, bird.date)
 
@@ -70,12 +71,9 @@ const updateObservationsList = function (birdName, layer) {
 	})
 }
 
-
-const removeBirdElement = function(bird) {
+const removeBirdElement = function (bird) {
 	model.removeBird(bird.id)
 }
-
-
 
 const init = function () {
 	getBirdToBeRemoved(removeBirdElement)
@@ -91,6 +89,7 @@ const init = function () {
 	closeWindow(overlay, mainContainerResults)
 	closeWindow(overlay, errorMessage)
 	closeWindow(closeResultsButton, mainContainerResults)
+	closeWindow(overlay, removeMessage)
 	displayAddWindow()
 	searchBirds(renderList)
 	showErrorWindow()
