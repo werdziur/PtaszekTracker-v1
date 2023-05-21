@@ -75,13 +75,17 @@ export const displaySearchWindow = () => {
 	searchWindow.style.display = 'flex'
 	overlay.style.display = 'block'
 }
-
 export const displayAddWindow = () => {
 	buttonAddBird.addEventListener('click', () => {
 		searchWindow.style.display = 'none'
 		addBirdWindow.style.display = 'flex'
 		overlay.style.display = 'block'
 	})
+}
+
+const closeSearchResultsContainer = function () {
+	mainContainerResults.style.display = 'none'
+	overlay.style.display = 'none'
 }
 
 export const closeWindow = function (el, target) {
@@ -102,6 +106,13 @@ export const closeWindowDefault = function (el, target) {
 	el.addEventListener('click', () => {
 		target.style.display = 'none'
 		overlay.style.display = 'none'
+	})
+}
+
+export const showObservationList = function (handler) {
+	navigationItemList.addEventListener('click', () => {
+		listOfObservations.style.display = 'flex'
+		handler.classList.remove('navigation__items--active')
 	})
 }
 
@@ -128,17 +139,15 @@ export const showErrorWindow = function () {
 
 export const closeSuccessWindow = function () {
 	successMessageButton.addEventListener('click', () => {
-		// searchWindow.style.display = 'none'
 		successMessage.style.display = 'none'
 		overlay.style.display = 'none'
 	})
 }
 
-export const showObservationList = function (handler) {
-	navigationItemList.addEventListener('click', () => {
-		listOfObservations.style.display = 'flex'
-		handler.classList.remove('navigation__items--active')
-	})
+export const displaySuccessWindow = function (text) {
+	successMessage.style.display = 'flex'
+	overlay.style.display = 'flex'
+	successMessageText.innerText = `${text}`
 }
 
 const closeRemoveMessage = function () {
@@ -150,21 +159,19 @@ const closeRemoveMessage = function () {
 
 export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
-		//clear list of observations
-		observationsContainer.innerHTML = ''
-		searchResultsContainer.innerHTML = ''
-
 		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
 		if (!chosenBird) return
 
 		//close search results container
-		mainContainerResults.style.display = 'none'
-		overlay.style.display = 'none'
+		closeSearchResultsContainer()
 		//show success window
-		successMessage.style.display = 'flex'
-		successMessageText.innerText = 'The bird has been added to your list'
-		overlay.style.display = 'flex'
+
+		displaySuccessWindow('The bird has been added to your list.')
+
+		//clear list of observations
+		observationsContainer.innerHTML = ''
+		searchResultsContainer.innerHTML = ''
 
 		closeSuccessWindow()
 		return handler(chosenBird.dataset)
@@ -232,9 +239,7 @@ export const getBirdToBeRemoved = function (handler) {
 		if (e.target.closest('.remove-window__button--yes')) {
 			closeRemoveMessage()
 			selectedBirdsId.remove()
-			successMessage.style.display = 'flex'
-			overlay.style.display = 'flex'
-			successMessageText.innerText = 'The bird has been removed from your list.'
+			displaySuccessWindow('The bird has been removed from your list.')
 			return handler(selectedBirdsId.dataset)
 		}
 	})
