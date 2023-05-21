@@ -196,6 +196,12 @@ body {
 		padding: 0.5rem;
 	}
 
+	&__close:hover {
+		cursor: pointer;
+		transition: text-shadow 0.5s;
+		text-shadow: 0rem 0rem 1.5rem colors.$green;
+	}
+
 	&__text {
 		text-align: center;
 	}
@@ -229,6 +235,13 @@ body {
 			border: 2px solid colors.$green;
 			border-radius: 10px;
 			background-color: colors.$light-green;
+		}
+
+		&--submit:hover,
+		&--add:hover {
+			box-shadow: 0rem 0rem 1.5rem colors.$green;
+			cursor: pointer;
+			transition: text-shadow 0.5s;
 		}
 	}
 }
@@ -279,6 +292,12 @@ body {
 	&__close {
 		align-self: flex-end;
 		padding: 0.5rem;
+	}
+
+	&__close:hover {
+		cursor: pointer;
+		transition: text-shadow 0.5s;
+		text-shadow: 0rem 0rem 1.5rem colors.$green;
 	}
 }
 
@@ -351,6 +370,12 @@ body {
 	&__close {
 		align-self: flex-end;
 		padding: 0.5rem;
+	}
+
+	&__close:hover {
+		cursor: pointer;
+		transition: text-shadow 0.5s;
+		text-shadow: 0rem 0rem 1.5rem colors.$green;
 	}
 
 	&__container {
@@ -435,6 +460,12 @@ body {
 		border: 2px solid colors.$green;
 		border-radius: 10px;
 		background-color: colors.$light-green;
+	}
+
+	&__button:hover {
+		box-shadow: 0rem 0rem 1.5rem colors.$green;
+		cursor: pointer;
+		transition: text-shadow 0.5s;
 	}
 
 	&__text {
@@ -525,9 +556,22 @@ body {
 			box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 		}
 
+		&--name:hover,
+		&--date:hover {
+			box-shadow: 0rem 0rem 1.5rem colors.$green;
+			cursor: pointer;
+			transition: text-shadow 0.5s;
+		}
+
 		&--sort {
 			padding: 0.2rem;
 			font-size: 1.4rem;
+		}
+
+		&--search:hover{
+			text-shadow: 0rem 0rem 1.5rem colors.$green;
+			cursor: pointer;
+			transition: text-shadow 0.5s;
 		}
 	}
 
@@ -565,6 +609,12 @@ body {
 	&__close {
 		align-self: flex-end;
 		padding: 0.5rem;
+	}
+
+	&__close:hover {
+		text-shadow: 0rem 0rem 1.5rem colors.$green;
+		cursor: pointer;
+		transition: text-shadow 0.5s;
 	}
 
 	&__container {
@@ -615,13 +665,12 @@ body {
 	border-radius: 9px;
 }
 
-
-
 .birds-icon:hover {
 	text-shadow: 0rem 0rem 1.5rem colors.$red;
 	cursor: pointer;
 	transition: text-shadow 0.5s;
 }
+
 
 //footer
 
