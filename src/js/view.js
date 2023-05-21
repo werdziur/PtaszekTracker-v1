@@ -60,11 +60,13 @@ export const showPosition = function (position) {
 export const renderResult = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
 	let html = `<li class="search-results__result" data-name="${result.name}">
-					<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
+					<div class="search-results__result--divicon">
+					<div class="icon-search"><i class="fa-solid fa-plus" style="color: #418900;"></i></div></div>
 					<div class="search-results__heading">
     					<img src="${result.photo}" alt="Photo of the bird">
     					<p class="search-results__name">${finalName}</p>
 					</div>
+					<div class="search-results__more"> <p class ="search-results__more--text">Show more</p></div>
 				</li>`
 
 	mainContainerResults.style.display = 'flex'
@@ -211,12 +213,13 @@ export const renderSelectedBird = function (bird) {
 		<div class="birds-list__result--date">${
 			months[bird.date.getMonth()]
 		} ${bird.date.getDate()}, ${bird.date.getHours()}:${bird.date.getMinutes()}</div>
-		<div class="birds-list__result--emoji"><i class="fa-regular fa-trash-can fa-lg" style="color: #418900;"></i></div>
+		<div class="birds-list__result--emoji"><i class="fa-regular fa-trash-can fa-lg birds-icon" style="color: #CF1020;"></i></div>
 	</div>
 	<div class="birds-list__heading">
 		<img src="${bird.photo}" alt="Photo of the bird">
 		<p class="birds-list__name">${finalName}</p>
 	</div>
+	<div class="birds-list__more"> <p class ="birds-list__more--text">Show more</p></div>
 </div>`
 
 	observationsContainer.insertAdjacentHTML('afterbegin', html)

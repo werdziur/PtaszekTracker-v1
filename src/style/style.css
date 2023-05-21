@@ -275,24 +275,31 @@ body {
   background-color: #efe4bd;
   border-radius: 9px;
   padding: 2rem;
-  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
   transition: all 0.5s;
   z-index: 2000;
 }
 .search-results__result {
   background-color: #fffbf3;
-  height: 100px;
+  height: 120px;
   width: 200px;
   border-radius: 9px;
   padding: 1rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0rem 1.5rem rgba(0, 0, 0, 0.2);
   margin: 1rem 0 1rem 0;
 }
-.search-results__result--icon {
+.search-results__result--divicon {
   display: flex;
   justify-content: flex-end;
+}
+.search-results .icon-search {
   right: 10px;
   padding: 0.5rem;
+  width: 20px;
+}
+.search-results .icon-search:hover {
+  text-shadow: 0rem 0rem 1.5rem #418900;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
 }
 .search-results__close {
   align-self: flex-end;
@@ -320,10 +327,26 @@ body {
   margin-left: 7px;
   padding: 0.5rem;
 }
+.search-results__more {
+  display: flex;
+  justify-content: flex-end;
+}
+.search-results__more--text {
+  width: 50%;
+  text-align: end;
+  font-size: 1rem;
+}
+.search-results__more--text:hover {
+  color: #418900;
+  text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.5s;
+}
 
 .search-results img {
   width: 80px;
-  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0rem 0rem 1.5rem rgba(0, 0, 0, 0.2);
   border-radius: 9px;
 }
 
@@ -447,11 +470,11 @@ body {
 }
 .birds-list__result {
   background-color: #fffbf3;
-  height: 110px;
+  height: 120px;
   width: 200px;
   border-radius: 9px;
   padding: 1rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0rem 1.5rem rgba(0, 0, 0, 0.2);
   margin: 1rem 0 1rem 0;
 }
 .birds-list__result--icon {
@@ -490,11 +513,33 @@ body {
   margin-left: 7px;
   padding: 0.5rem;
 }
+.birds-list__more {
+  display: flex;
+  justify-content: flex-end;
+}
+.birds-list__more--text {
+  width: 50%;
+  text-align: end;
+  font-size: 1rem;
+}
+.birds-list__more--text:hover {
+  color: #418900;
+  text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.5s;
+}
 
 .birds-list img {
   width: 80px;
-  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0rem 0rem 1.5rem rgba(0, 0, 0, 0.2);
   border-radius: 9px;
+}
+
+.birds-icon:hover {
+  text-shadow: 0rem 0rem 1.5rem #cf1020;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
 }
 
 .footer {
