@@ -38,6 +38,7 @@ export const removeMessage = document.querySelector('.remove-window')
 let map
 let mapEvent
 let layer
+let iconsAddBird
 
 export const showPosition = function (position) {
 	//setting the map view
@@ -160,12 +161,11 @@ const closeRemoveMessage = function () {
 //choose bird from search list and add to the list of observations
 
 export const addSelectedBird = function (handler) {
-	// const iconsAddBird = document.querySelectorAll('.icon-search')
-	searchResultsContainer.addEventListener('click', e => {
-		// console.log(iconsAddBird)
+	searchResultsContainer.addEventListener('click', (e) => {
 		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
-		if (!chosenBird) return
+		const buttonClicked = e.target.closest('.icon-search')
+		if (!chosenBird || !buttonClicked) return
 
 		//close search results container
 		closeSearchResultsContainer()
@@ -178,6 +178,7 @@ export const addSelectedBird = function (handler) {
 		searchResultsContainer.innerHTML = ''
 
 		closeSuccessWindow()
+		console.log(chosenBird.dataset)
 		return handler(chosenBird.dataset)
 	})
 }
