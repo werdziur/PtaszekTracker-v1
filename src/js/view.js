@@ -160,7 +160,9 @@ const closeRemoveMessage = function () {
 //choose bird from search list and add to the list of observations
 
 export const addSelectedBird = function (handler) {
+	// const iconsAddBird = document.querySelectorAll('.icon-search')
 	searchResultsContainer.addEventListener('click', e => {
+		// console.log(iconsAddBird)
 		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
 		if (!chosenBird) return

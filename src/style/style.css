@@ -167,6 +167,11 @@ body {
   align-self: flex-end;
   padding: 0.5rem;
 }
+.search__close:hover {
+  cursor: pointer;
+  transition: text-shadow 0.5s;
+  text-shadow: 0rem 0rem 1.5rem #418900;
+}
 .search__text {
   text-align: center;
 }
@@ -197,6 +202,11 @@ body {
   border: 2px solid #418900;
   border-radius: 10px;
   background-color: #7ec042;
+}
+.search__buttons--submit:hover, .search__buttons--add:hover {
+  box-shadow: 0rem 0rem 1.5rem #418900;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
 }
 
 .add-bird {
@@ -242,6 +252,11 @@ body {
 .add-bird__close {
   align-self: flex-end;
   padding: 0.5rem;
+}
+.add-bird__close:hover {
+  cursor: pointer;
+  transition: text-shadow 0.5s;
+  text-shadow: 0rem 0rem 1.5rem #418900;
 }
 
 .user-info {
@@ -304,6 +319,11 @@ body {
 .search-results__close {
   align-self: flex-end;
   padding: 0.5rem;
+}
+.search-results__close:hover {
+  cursor: pointer;
+  transition: text-shadow 0.5s;
+  text-shadow: 0rem 0rem 1.5rem #418900;
 }
 .search-results__container {
   height: 100%;
@@ -380,6 +400,13 @@ body {
   border: 2px solid #418900;
   border-radius: 10px;
   background-color: #7ec042;
+}
+.error-window__button:hover,
+.success-window__button:hover,
+.remove-window__button:hover {
+  box-shadow: 0rem 0rem 1.5rem #418900;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
 }
 .error-window__text,
 .success-window__text,
@@ -464,9 +491,19 @@ body {
   align-items: center;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
+.birds-list__options--name:hover, .birds-list__options--date:hover {
+  box-shadow: 0rem 0rem 1.5rem #418900;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
+}
 .birds-list__options--sort {
   padding: 0.2rem;
   font-size: 1.4rem;
+}
+.birds-list__options--search:hover {
+  text-shadow: 0rem 0rem 1.5rem #418900;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
 }
 .birds-list__result {
   background-color: #fffbf3;
@@ -493,6 +530,11 @@ body {
 .birds-list__close {
   align-self: flex-end;
   padding: 0.5rem;
+}
+.birds-list__close:hover {
+  text-shadow: 0rem 0rem 1.5rem #418900;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
 }
 .birds-list__container {
   margin-top: 20px;
