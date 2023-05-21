@@ -60,11 +60,13 @@ export const showPosition = function (position) {
 export const renderResult = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
 	let html = `<li class="search-results__result" data-name="${result.name}">
-					<div class="search-results__result--icon"><i class="fa-solid fa-plus" style="color: #418900;"></i></div>
+					<div class="search-results__result--divicon">
+					<div class="icon-search"><i class="fa-solid fa-plus" style="color: #418900;"></i></div></div>
 					<div class="search-results__heading">
     					<img src="${result.photo}" alt="Photo of the bird">
     					<p class="search-results__name">${finalName}</p>
 					</div>
+					<div class="search-results__more"> <p class ="search-results__more--text">Show more</p></div>
 				</li>`
 
 	mainContainerResults.style.display = 'flex'
@@ -75,13 +77,17 @@ export const displaySearchWindow = () => {
 	searchWindow.style.display = 'flex'
 	overlay.style.display = 'block'
 }
-
 export const displayAddWindow = () => {
 	buttonAddBird.addEventListener('click', () => {
 		searchWindow.style.display = 'none'
 		addBirdWindow.style.display = 'flex'
 		overlay.style.display = 'block'
 	})
+}
+
+const closeSearchResultsContainer = function () {
+	mainContainerResults.style.display = 'none'
+	overlay.style.display = 'none'
 }
 
 export const closeWindow = function (el, target) {
@@ -102,6 +108,13 @@ export const closeWindowDefault = function (el, target) {
 	el.addEventListener('click', () => {
 		target.style.display = 'none'
 		overlay.style.display = 'none'
+	})
+}
+
+export const showObservationList = function (handler) {
+	navigationItemList.addEventListener('click', () => {
+		listOfObservations.style.display = 'flex'
+		handler.classList.remove('navigation__items--active')
 	})
 }
 
@@ -128,17 +141,15 @@ export const showErrorWindow = function () {
 
 export const closeSuccessWindow = function () {
 	successMessageButton.addEventListener('click', () => {
-		// searchWindow.style.display = 'none'
 		successMessage.style.display = 'none'
 		overlay.style.display = 'none'
 	})
 }
 
-export const showObservationList = function (handler) {
-	navigationItemList.addEventListener('click', () => {
-		listOfObservations.style.display = 'flex'
-		handler.classList.remove('navigation__items--active')
-	})
+export const displaySuccessWindow = function (text) {
+	successMessage.style.display = 'flex'
+	overlay.style.display = 'flex'
+	successMessageText.innerText = `${text}`
 }
 
 const closeRemoveMessage = function () {
@@ -150,21 +161,19 @@ const closeRemoveMessage = function () {
 
 export const addSelectedBird = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
-		//clear list of observations
-		observationsContainer.innerHTML = ''
-		searchResultsContainer.innerHTML = ''
-
 		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
 		if (!chosenBird) return
 
 		//close search results container
-		mainContainerResults.style.display = 'none'
-		overlay.style.display = 'none'
+		closeSearchResultsContainer()
 		//show success window
-		successMessage.style.display = 'flex'
-		successMessageText.innerText = 'The bird has been added to your list'
-		overlay.style.display = 'flex'
+
+		displaySuccessWindow('The bird has been added to your list.')
+
+		//clear list of observations
+		observationsContainer.innerHTML = ''
+		searchResultsContainer.innerHTML = ''
 
 		closeSuccessWindow()
 		return handler(chosenBird.dataset)
@@ -204,12 +213,13 @@ export const renderSelectedBird = function (bird) {
 		<div class="birds-list__result--date">${
 			months[bird.date.getMonth()]
 		} ${bird.date.getDate()}, ${bird.date.getHours()}:${bird.date.getMinutes()}</div>
-		<div class="birds-list__result--emoji"><i class="fa-regular fa-trash-can fa-lg" style="color: #418900;"></i></div>
+		<div class="birds-list__result--emoji"><i class="fa-regular fa-trash-can fa-lg birds-icon" style="color: #CF1020;"></i></div>
 	</div>
 	<div class="birds-list__heading">
 		<img src="${bird.photo}" alt="Photo of the bird">
 		<p class="birds-list__name">${finalName}</p>
 	</div>
+	<div class="birds-list__more"> <p class ="birds-list__more--text">Show more</p></div>
 </div>`
 
 	observationsContainer.insertAdjacentHTML('afterbegin', html)
@@ -232,9 +242,7 @@ export const getBirdToBeRemoved = function (handler) {
 		if (e.target.closest('.remove-window__button--yes')) {
 			closeRemoveMessage()
 			selectedBirdsId.remove()
-			successMessage.style.display = 'flex'
-			overlay.style.display = 'flex'
-			successMessageText.innerText = 'The bird has been removed from your list.'
+			displaySuccessWindow('The bird has been removed from your list.')
 			return handler(selectedBirdsId.dataset)
 		}
 	})
