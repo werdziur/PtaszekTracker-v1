@@ -161,7 +161,7 @@ const closeRemoveMessage = function () {
 //choose bird from search list and add to the list of observations
 
 export const addSelectedBird = function (handler) {
-	searchResultsContainer.addEventListener('click', (e) => {
+	searchResultsContainer.addEventListener('click', e => {
 		//detect clicked bird container
 		const chosenBird = e.target.closest('[data-name]')
 		const buttonClicked = e.target.closest('.icon-search')
@@ -178,8 +178,17 @@ export const addSelectedBird = function (handler) {
 		searchResultsContainer.innerHTML = ''
 
 		closeSuccessWindow()
-		console.log(chosenBird.dataset)
 		return handler(chosenBird.dataset)
+	})
+}
+
+export const showMoreInformation = function (handler) {
+	searchResultsContainer.addEventListener('click', e => {
+		const showMoreButton = e.target.closest('.search-results__more')
+		const clickedBird = e.target.closest('[data-name]')
+		if (!showMoreButton || !clickedBird) return;
+		
+		return handler(clickedBird.dataset)
 	})
 }
 
@@ -253,3 +262,26 @@ export const getBirdToBeRemoved = function (handler) {
 
 // const removeButtonYes = document.querySelector('.remove-window__button--yes')
 // const removeButtonNo = document.querySelector('.remove-window__button--no')
+
+
+export const renderMoreInformation = function (result) {
+	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
+	const moreInfo = document.querySelector('.more-information')
+	moreInfo.style.display = 'flex'
+	console.log(finalName)
+
+	
+
+	let html = `<div class="more-information__result" data-name="${finalName}">
+					<div class="more-information__result--divicon">
+					<div class="icon-search"><i class="fa-regular fa-square-minus fa-2xl" style="color: #418900;"></i></div></div>
+					<div class="more-information__heading">
+    					<img src="${result.photo}" alt="Photo of the bird">
+    					<p class="more-information__name">${finalName}</p>
+						<p class="more-information__description">${result.description}</p>
+					</div>
+				</div>`
+
+	mainContainerResults.style.display = 'flex'
+	moreInfo.insertAdjacentHTML('afterbegin', html)
+}

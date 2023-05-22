@@ -24,6 +24,8 @@ import {
 	getBirdToBeRemoved,
 	successMessage,
 	removeMessage,
+	showMoreInformation,
+	renderMoreInformation,
 } from './view.js'
 
 let userInput = document.querySelector('.search__input')
@@ -75,7 +77,15 @@ const removeBirdElement = function (bird) {
 	model.removeBird(bird.id)
 }
 
+const getInfoAboutBird = function (birdName) {
+	const [bird] = model.state.bird.filter(el => el.name === birdName.name)
+	// displayBirdInformation(bird)
+	console.log(bird)
+	renderMoreInformation(bird)
+}
+
 const init = function () {
+	showMoreInformation(getInfoAboutBird)
 	getBirdToBeRemoved(removeBirdElement)
 	addSelectedBird(updateObservationsList)
 	model.getUserPosition(showPosition)
@@ -95,6 +105,7 @@ const init = function () {
 	showErrorWindow()
 	closeListOfObservations()
 	showObservationList(navBar)
+	showMoreInformation()
 }
 
 init()
