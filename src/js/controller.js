@@ -25,7 +25,7 @@ import {
 	successMessage,
 	removeMessage,
 	showMoreInformation,
-	renderMoreInformation,
+	renderMoreInformation, closeMoreInfo
 } from './view.js'
 
 let userInput = document.querySelector('.search__input')
@@ -85,6 +85,7 @@ const getInfoAboutBird = function (birdName) {
 }
 
 const init = function () {
+	closeMoreInfo()
 	showMoreInformation(getInfoAboutBird)
 	getBirdToBeRemoved(removeBirdElement)
 	addSelectedBird(updateObservationsList)
