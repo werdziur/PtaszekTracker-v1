@@ -34,6 +34,8 @@ export const successMessage = document.querySelector('.success-window')
 const successMessageButton = document.querySelector('.success-window__button')
 const successMessageText = document.querySelector('.success-window__text')
 export const removeMessage = document.querySelector('.remove-window')
+export const moreInfo = document.querySelector('.more-information')
+export const moreInfoContainer = document.querySelector('.more-information__results')
 
 let map
 let mapEvent
@@ -158,6 +160,14 @@ const closeRemoveMessage = function () {
 	overlay.style.display = 'none'
 }
 
+export const closeMoreInfo = function () {
+	const buttonCloseInfo = document.querySelector('.more-information__divicon')
+	buttonCloseInfo.addEventListener('click', () => {
+		moreInfo.style.display = 'none'
+		moreInfo.innerHTML = ''
+	})
+}
+
 //choose bird from search list and add to the list of observations
 
 export const addSelectedBird = function (handler) {
@@ -186,8 +196,8 @@ export const showMoreInformation = function (handler) {
 	searchResultsContainer.addEventListener('click', e => {
 		const showMoreButton = e.target.closest('.search-results__more')
 		const clickedBird = e.target.closest('[data-name]')
-		if (!showMoreButton || !clickedBird) return;
-		
+		if (!showMoreButton || !clickedBird) return
+
 		return handler(clickedBird.dataset)
 	})
 }
@@ -263,25 +273,19 @@ export const getBirdToBeRemoved = function (handler) {
 // const removeButtonYes = document.querySelector('.remove-window__button--yes')
 // const removeButtonNo = document.querySelector('.remove-window__button--no')
 
-
 export const renderMoreInformation = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
-	const moreInfo = document.querySelector('.more-information')
 	moreInfo.style.display = 'flex'
 	console.log(finalName)
 
-	
-
 	let html = `<div class="more-information__result" data-name="${finalName}">
-					<div class="more-information__result--divicon">
-					<div class="icon-search"><i class="fa-regular fa-square-minus fa-2xl" style="color: #418900;"></i></div></div>
 					<div class="more-information__heading">
-    					<img src="${result.photo}" alt="Photo of the bird">
-    					<p class="more-information__name">${finalName}</p>
+						<p class="more-information__name">${finalName}</p>
+    					<img src="${result.photo}" alt="Photo of the bird">    					
 						<p class="more-information__description">${result.description}</p>
 					</div>
 				</div>`
 
 	mainContainerResults.style.display = 'flex'
-	moreInfo.insertAdjacentHTML('afterbegin', html)
+	moreInfoContainer.insertAdjacentHTML('beforeend', html)
 }
