@@ -60,6 +60,11 @@ export const showPosition = function (position) {
 	})
 }
 
+export const getCoords = function () {
+	const { lat, lng } = mapEvent.latlng
+	return [lat, lng]
+}
+
 export const renderResult = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
 	let html = `<li class="search-results__result" data-name="${result.name}">
@@ -203,7 +208,7 @@ export const showMoreInformation = function (handler) {
 }
 
 export const renderMarker = function (bird, date) {
-	const { lat, lng } = mapEvent.latlng
+	const [lat, lng] = getCoords()
 	layer = L.marker([lat, lng])
 		.addTo(map)
 		.bindPopup(
@@ -241,19 +246,19 @@ export const renderSelectedBird = function (bird) {
 		<img src="${bird.photo}" alt="Photo of the bird">
 		<p class="birds-list__name">${finalName}</p>
 	</div>
-	<div class="birds-list__more"> <p class ="birds-list__more--text">Show more</p></div>
+	<div class="birds-list__map"> <p class ="birds-list__map--text">Show on a map</p></div>
 </div>`
 
 	observationsContainer.insertAdjacentHTML('afterbegin', html)
 }
 
 export const getBirdToBeRemoved = function (handler) {
-	let selectedBirdsId;
+	let selectedBirdsId
 	observationsContainer.addEventListener('click', e => {
 		selectedBirdsId = e.target.closest('[data-id]')
 		const buttonClicked = e.target.closest('.birds-list__result--emoji')
 		if (!selectedBirdsId || !buttonClicked) return
-		
+
 		removeMessage.style.display = 'flex'
 		overlay.style.display = 'flex'
 	})
@@ -272,8 +277,25 @@ export const getBirdToBeRemoved = function (handler) {
 	})
 }
 
-// const removeButtonYes = document.querySelector('.remove-window__button--yes')
-// const removeButtonNo = document.querySelector('.remove-window__button--no')
+export const showOnTheMap = function (handler) {
+	observationsContainer.addEventListener('click', e => {
+		const selectedBirdsId = e.target.closest('[data-id]')
+		const buttonClicked = e.target.closest('.birds-list__map')
+		if (!buttonClicked || !selectedBirdsId) return
+
+		return handler(selectedBirdsId.dataset)
+	})
+}
+
+export const displayMapView = function (coords) {
+	listOfObservations.style.display = 'none'
+	map.setView(coords, 13, {
+		animate: true,
+		pan: {
+			duration: 1,
+		},
+	})
+}
 
 export const renderMoreInformation = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1)

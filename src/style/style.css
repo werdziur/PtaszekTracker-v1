@@ -571,6 +571,22 @@ body {
   font-size: 1.1rem;
   transition: all 0.5s;
 }
+.birds-list__map {
+  display: flex;
+  justify-content: flex-end;
+}
+.birds-list__map--text {
+  width: 50%;
+  text-align: end;
+  font-size: 1rem;
+}
+.birds-list__map--text:hover {
+  color: #418900;
+  text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.5s;
+}
 
 .birds-list img {
   width: 80px;
