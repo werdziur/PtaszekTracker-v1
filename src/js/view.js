@@ -164,7 +164,7 @@ export const closeMoreInfo = function () {
 	const buttonCloseInfo = document.querySelector('.more-information__divicon')
 	buttonCloseInfo.addEventListener('click', () => {
 		moreInfo.style.display = 'none'
-		moreInfo.innerHTML = ''
+		moreInfoContainer.innerHTML = ''
 	})
 }
 
@@ -276,7 +276,6 @@ export const getBirdToBeRemoved = function (handler) {
 export const renderMoreInformation = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1)
 	moreInfo.style.display = 'flex'
-	console.log(finalName)
 
 	let html = `<div class="more-information__result" data-name="${finalName}">
 					<div class="more-information__heading">

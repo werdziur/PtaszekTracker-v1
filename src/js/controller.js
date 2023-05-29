@@ -79,13 +79,11 @@ const removeBirdElement = function (bird) {
 
 const getInfoAboutBird = function (birdName) {
 	const [bird] = model.state.bird.filter(el => el.name === birdName.name)
-	// displayBirdInformation(bird)
-	console.log(bird)
 	renderMoreInformation(bird)
 }
 
 const init = function () {
-	closeMoreInfo()
+	
 	showMoreInformation(getInfoAboutBird)
 	getBirdToBeRemoved(removeBirdElement)
 	addSelectedBird(updateObservationsList)
@@ -106,7 +104,7 @@ const init = function () {
 	showErrorWindow()
 	closeListOfObservations()
 	showObservationList(navBar)
-	showMoreInformation()
+	closeMoreInfo()
 }
 
 init()
