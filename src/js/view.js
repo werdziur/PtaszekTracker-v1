@@ -248,10 +248,12 @@ export const renderSelectedBird = function (bird) {
 }
 
 export const getBirdToBeRemoved = function (handler) {
-	let selectedBirdsId
+	let selectedBirdsId;
 	observationsContainer.addEventListener('click', e => {
 		selectedBirdsId = e.target.closest('[data-id]')
-		if (!selectedBirdsId) return
+		const buttonClicked = e.target.closest('.birds-list__result--emoji')
+		if (!selectedBirdsId || !buttonClicked) return
+		
 		removeMessage.style.display = 'flex'
 		overlay.style.display = 'flex'
 	})
