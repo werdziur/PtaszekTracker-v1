@@ -313,24 +313,27 @@ export const renderMoreInformation = function (result) {
 	moreInfoContainer.insertAdjacentHTML('beforeend', html)
 }
 
+export const clickOverview = function (handler) {
+	const buttonOverview = document.querySelector('.birds-list__bottomoptions--overview')
+	buttonOverview.addEventListener('click', e => {
+		// fit bounds with coordinates
+		handler()
+	})
+}
 
-
-// _overview(){
-// 	// if there are no workouts return
-// 	 if ((this.#workouts.length === 0)) return;
-		
-	
-// 	// find lowest and highest lat and long to make map bounds that fit all markers
-// 	const latitudes = this.#workouts.map(w => {return w.coords[0]})
-// 	const longitudes = this.#workouts.map(w => {return w.coords[1]})
-// 	const minLat = Math.min(...latitudes);
-// 	const maxLat = Math.max(...latitudes);
-// 	const minLong = Math.min(...longitudes);
-// 	const maxLong= Math.max(...longitudes);
-// 	// fit bounds with coordinates
-// 	this.#map.fitBounds([
-// 		[maxLat, minLong],
-// 		[minLat, maxLong]
-// 	],{padding:[70,70]});
-
-// }
+export const showOverview = function (latitudes, longtitudes) {
+	listOfObservations.style.display = 'none'
+	const long = longtitudes
+	const lat = latitudes
+	const minLat = Math.min(...lat)
+	const maxLat = Math.max(...lat)
+	const minLong = Math.min(...long)
+	const maxLong = Math.max(...long)
+	map.fitBounds(
+		[
+			[maxLat, minLong],
+			[minLat, maxLong],
+		],
+		{ padding: [70, 70] }
+	)
+}

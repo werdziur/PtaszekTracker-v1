@@ -25,7 +25,13 @@ import {
 	successMessage,
 	removeMessage,
 	showMoreInformation,
-	renderMoreInformation, closeMoreInfo, showOnTheMap, getCoords, displayMapView
+	renderMoreInformation,
+	closeMoreInfo,
+	showOnTheMap,
+	getCoords,
+	displayMapView,
+	showOverview,
+	clickOverview,
 } from './view.js'
 
 let userInput = document.querySelector('.search__input')
@@ -72,8 +78,6 @@ const updateObservationsList = function (birdName, layer) {
 	model.state.observations.forEach(el => {
 		renderSelectedBird(el)
 	})
-
-	
 }
 
 const removeBirdElement = function (bird) {
@@ -85,12 +89,22 @@ const getInfoAboutBird = function (birdName) {
 	renderMoreInformation(bird)
 }
 
-const findBirdToShow = function(birdsId) {
+const findBirdToShow = function (birdsId) {
 	const [birdId] = model.state.observations.filter(el => el.id === birdsId.id)
 	displayMapView(birdId.coords)
 }
 
+const overview = function () {
+	if (model.state.observations.length === 0) return
+	const coords = model.state.observations.map(el => el.coords)
+	const langtitudes = coords.map(el => el[0])
+	const longtitudes = coords.map(el => el[1])
+	showOverview(langtitudes, longtitudes)
+	
+}
+
 const init = function () {
+	clickOverview(overview)
 	showOnTheMap(findBirdToShow)
 	showMoreInformation(getInfoAboutBird)
 	getBirdToBeRemoved(removeBirdElement)
