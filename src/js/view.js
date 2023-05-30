@@ -289,7 +289,7 @@ export const showOnTheMap = function (handler) {
 
 export const displayMapView = function (coords) {
 	listOfObservations.style.display = 'none'
-	map.setView(coords, 13, {
+	map.setView(coords, MAP_SIZE, {
 		animate: true,
 		pan: {
 			duration: 1,
@@ -312,3 +312,25 @@ export const renderMoreInformation = function (result) {
 	mainContainerResults.style.display = 'flex'
 	moreInfoContainer.insertAdjacentHTML('beforeend', html)
 }
+
+
+
+// _overview(){
+// 	// if there are no workouts return
+// 	 if ((this.#workouts.length === 0)) return;
+		
+	
+// 	// find lowest and highest lat and long to make map bounds that fit all markers
+// 	const latitudes = this.#workouts.map(w => {return w.coords[0]})
+// 	const longitudes = this.#workouts.map(w => {return w.coords[1]})
+// 	const minLat = Math.min(...latitudes);
+// 	const maxLat = Math.max(...latitudes);
+// 	const minLong = Math.min(...longitudes);
+// 	const maxLong= Math.max(...longitudes);
+// 	// fit bounds with coordinates
+// 	this.#map.fitBounds([
+// 		[maxLat, minLong],
+// 		[minLat, maxLong]
+// 	],{padding:[70,70]});
+
+// }
