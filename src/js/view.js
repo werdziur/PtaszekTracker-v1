@@ -338,13 +338,13 @@ export const showOverview = function (latitudes, longtitudes) {
 	)
 }
 
-export const clickRemoveAll = function (handler) {
+export const removeAll = function (handler) {
 	const buttonRemove = document.querySelector('.birds-list__bottomoptions--remove')
 	buttonRemove.addEventListener('click', () => {
+		displaySuccessWindow('All observations have been removed 🦤')
 		handler()
+		observationsContainer.innerHTML = ''
 	})
 }
 
-export const removeAll = function() {
 
-}

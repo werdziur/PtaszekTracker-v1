@@ -31,7 +31,7 @@ import {
 	getCoords,
 	displayMapView,
 	showOverview,
-	clickOverview,
+	clickOverview, removeAll
 } from './view.js'
 
 let userInput = document.querySelector('.search__input')
