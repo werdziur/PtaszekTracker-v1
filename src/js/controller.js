@@ -103,7 +103,12 @@ const overview = function () {
 	
 }
 
+const removeAllObservations = function() {
+	model.removeAllElements()
+}
+
 const init = function () {
+	removeAll(removeAllObservations)
 	clickOverview(overview)
 	showOnTheMap(findBirdToShow)
 	showMoreInformation(getInfoAboutBird)

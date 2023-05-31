@@ -315,7 +315,7 @@ export const renderMoreInformation = function (result) {
 
 export const clickOverview = function (handler) {
 	const buttonOverview = document.querySelector('.birds-list__bottomoptions--overview')
-	buttonOverview.addEventListener('click', e => {
+	buttonOverview.addEventListener('click', () => {
 		// fit bounds with coordinates
 		handler()
 	})
@@ -336,4 +336,15 @@ export const showOverview = function (latitudes, longtitudes) {
 		],
 		{ padding: [70, 70] }
 	)
+}
+
+export const clickRemoveAll = function (handler) {
+	const buttonRemove = document.querySelector('.birds-list__bottomoptions--remove')
+	buttonRemove.addEventListener('click', () => {
+		handler()
+	})
+}
+
+export const removeAll = function() {
+
 }
