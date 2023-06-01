@@ -40,5 +40,6 @@ export const removeBird = function (id) {
 
 export const removeAllElements = function() {
 	state.markers = []
+	state.markers.forEach((e) => e.remove())
 	state.observations = []
 }
