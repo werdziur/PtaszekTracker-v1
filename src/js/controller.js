@@ -28,15 +28,16 @@ import {
 	renderMoreInformation,
 	closeMoreInfo,
 	showOnTheMap,
-	getCoords,
 	displayMapView,
 	showOverview,
 	clickOverview,
 	removeAll,
+	
 } from './view.js';
 
-let userInput = document.querySelector('.search__input');
+import { getCoords } from './config.js';
 
+const userInput = document.querySelector('.search__input');
 const closeResultsButton = document.querySelector('.search-results__close');
 const errorWindowText = document.querySelector('.error-window__text');
 const closeSearchButton = document.querySelector('.search__close');
@@ -103,12 +104,12 @@ const overview = function () {
 	showOverview(langtitudes, longtitudes);
 };
 
-const removeAllObservations = function () {
-	model.removeAllElements();
+const removeObservationArray = function () {
+	model.removeAllObservations();
 };
 
 const init = function () {
-	removeAll(removeAllObservations);
+	removeAll(removeObservationArray);
 	clickOverview(overview);
 	showOnTheMap(findBirdToShow);
 	showMoreInformation(getInfoAboutBird);

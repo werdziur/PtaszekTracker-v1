@@ -5,7 +5,7 @@
 		"date": "",
 		"coords": "",
 		"description": "Długość ciała: 11-12 cm. Zgrabny i ruchliwy ptak mniejszy od wróbla. Czapeczka na głowie niebieska otoczona białą obwódką, policzki białe a wokół nich biegnie ciemnoniebieski paseczek łączący się na karku. Skrzydła i ogon niebieskie, grzbiet oliwkowy, pierś i brzuch żółte. Często odzywa się dzwoniącymi trelami. Modraszka przebywa u nas przez cały rok, choć w rzeczywistości część ptaków odlatuje, a inne przybywają na zimę z północy i wschodu Europy.",
-		"photo": "src/img/animal-s.jpg",
+		"photo": "src/img/birds/animal-s.jpg",
 		"facts": "Lęg: 10-12 białych, czerwono nakrapianych jaj. Wysiadywanie: 12-14 dni. Młode opuszczają gniazdo po 17-18 dniach"
 	},
 	{
@@ -14,7 +14,7 @@
 		"date": "",
 		"coords": "",
 		"description": "12-13 cm Bardzo podobny do pełzacza ogrodowego. Różni się subtelnymi szczegółami ubarwienia, m. in. układem pasków i plamek na skrzydłach, czysto białym spodem ciała, krótszym dziobem. Najłatwiej rozpoznawalny po dłuższym, melodyjnym trelu z miękkim zakończeniem. Polskie nazwy pełzaczy mylnie sugerują, że ptaki te wymijają się siedliskami występowania, co nie zawsze jest zgodne z prawdą.",
-		"photo": "src/img/parrot-l.jpg",
+		"photo": "src/img/birds/parrot-l.jpg",
 		"facts": "Występowanie: Wszystkie typy lasów liściastych i iglastych, a także mniejsze zadrzewienia, ale raczej omija zadrzewienia miejskie i parki"
 	},
 	{
@@ -104,7 +104,7 @@
 		"date": "",
 		"coords": "",
 		"description": "Długość ciała: 24-27 cm. Czarno ubarwiony ptak ze stosunkowo długim ogonem (co odróżnia go od szpaka) i pomarańczowym dziobem. Samica brunatna, plamkowana od spodu. Kos był pierwotnie ptakiem typowo leśnym, a obecnie występuje licznie w różnych środowiskach, także w zieleni miejskiej, parkach, ogródkach działkowych i dzielnicach willowych.",
-		"photo": "src/img/animal-s.jpg",
+		"photo": "src/img/birds/animal-s.jpg",
 		"facts": "Lęg: 5-6 zielonkawych, rdzawo plamkowanych jaj. Wysiadywanie: 12-14 dni. Młode opuszczają gniazdo po 13-14 dniach"
 	},
 	{
@@ -113,7 +113,7 @@
 		"date": "",
 		"coords": "",
 		"description": "Długość ciała: 32-38 cm. Ptak wielkości pustułki, o długim ogonie i zaostrzonych skrzydłach. Ubarwieniem przypomina krogulca, gdyż ma szary wierzch ciała i pierś oraz prążkowany brzuch. Samice występują w dwóch odmianach, z których jedna jest podobna do samca, a druga jest ubarwiona rdzawo.",
-		"photo": "src/img/pigeon-l.jpg",
+		"photo": "src/img/birds/pigeon-l.jpg",
 		"facts": "Kukułka słynie ze zwyczaju podrzucania swych jaj do gniazd drobnych ptaków wróblowych. Każda samica znosi jedno jajo do gniazda tego gatunku, którego jaja są podobne do jej własnych. Są to najczęściej gniazda świergotków, pliszek, pokrzewek, gąsiorków, trzcinniczków, itp. Pisklę kukułki po wykluciu usuwa inne jaja lub pisklęta z gniazda i jest karmione przez przybranych rodziców."
 	},
 	{
