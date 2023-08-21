@@ -1,4 +1,4 @@
-import { MAP_SIZE, MAP_ZOOM } from './config.js';
+import { MAP_SIZE, MAP_ZOOM, getCoords } from './config.js';
 // let id = Math.random() + ''
 
 const months = [
@@ -36,9 +36,10 @@ const successMessageText = document.querySelector('.success-window__text');
 export const removeMessage = document.querySelector('.remove-window');
 export const moreInfo = document.querySelector('.more-information');
 export const moreInfoContainer = document.querySelector('.more-information__results');
+export const addBirdContainer = document.querySelector('.add-bird');
 
 let map;
-let mapEvent;
+export let mapEvent;
 let layer;
 let iconsAddBird;
 
@@ -60,10 +61,10 @@ export const showPosition = function (position) {
 	});
 };
 
-export const getCoords = function () {
-	const { lat, lng } = mapEvent.latlng;
-	return [lat, lng];
-};
+// export const getCoords = function () {
+// 	const { lat, lng } = mapEvent.latlng;
+// 	return [lat, lng];
+// };
 
 export const renderResult = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1);
@@ -102,9 +103,7 @@ export const closeWindow = function (el, target) {
 	el.addEventListener('click', () => {
 		if (el === buttonSearchSubmit) {
 			target.style.display = 'none';
-		}
-		// if (el === errorButton)
-		else {
+		} else {
 			target.style.display = 'none';
 			overlay.style.display = 'none';
 			searchResultsContainer.innerHTML = '';
@@ -182,10 +181,7 @@ export const addSelectedBird = function (handler) {
 		const buttonClicked = e.target.closest('.icon-search');
 		if (!chosenBird || !buttonClicked) return;
 
-		//close search results container
 		closeSearchResultsContainer();
-		//show success window
-
 		displaySuccessWindow('The bird has been added to your list.');
 
 		//clear list of observations
@@ -229,13 +225,9 @@ export const renderMarker = function (bird, date) {
 	return layer;
 };
 
-// export const setMarkerContent = function (bird) {
-// 	layer.setPopupContent(`${bird}`).openPopup()
-// }
-
 export const renderSelectedBird = function (bird) {
 	const finalName = bird.name[0].toUpperCase() + bird.name.slice(1);
-	let html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${bird.id}" >
+	const html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${bird.id}" >
 	<div class="birds-list__result--icon">
 		<div class="birds-list__result--date">${
 			months[bird.date.getMonth()]
@@ -301,7 +293,7 @@ export const renderMoreInformation = function (result) {
 	const finalName = result.name[0].toUpperCase() + result.name.slice(1);
 	moreInfo.style.display = 'flex';
 
-	let html = `<div class="more-information__result" data-name="${finalName}">
+	const html = `<div class="more-information__result" data-name="${finalName}">
 					<div class="more-information__heading">
 						<p class="more-information__name">${finalName}</p>
     					<img src="${result.photo}" alt="Photo of the bird">    					
@@ -346,3 +338,16 @@ export const removeAll = function (handler) {
 		observationsContainer.innerHTML = '';
 	});
 };
+
+export const addYourOwnBird = function (handler) {
+	addBirdContainer.addEventListener('click', e => {
+		e.preventDefault();
+		const addButton = e.target.closest('.add-bird__submit');
+		if (!addButton) return;
+		const birdForm = document.querySelector('.add-bird__form');
+		const birdData = [...new FormData(birdForm)]
+		handler(birdData)
+	});
+};
+
+

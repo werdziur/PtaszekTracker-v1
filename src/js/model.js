@@ -38,7 +38,7 @@ export const removeBird = function (id) {
 	state.markers.splice(birdIndex, 1);
 };
 
-export const removeAllElements = function () {
+export const removeAllObservations = function () {
 	state.markers.forEach(e => e.remove());
 	state.observations = [];
 };
