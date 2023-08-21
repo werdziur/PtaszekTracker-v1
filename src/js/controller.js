@@ -32,6 +32,7 @@ import {
 	showOverview,
 	clickOverview,
 	removeAll,
+	addYourOwnBird
 	
 } from './view.js';
 
@@ -104,9 +105,13 @@ const overview = function () {
 	showOverview(langtitudes, longtitudes);
 };
 
-const removeObservationArray = function () {
+const removeObservationArray = function() {
 	model.removeAllObservations();
 };
+
+const controlAddYourOwnBird = function(birdData) {
+	console.log(birdData)
+}
 
 const init = function () {
 	removeAll(removeObservationArray);
@@ -133,6 +138,7 @@ const init = function () {
 	closeListOfObservations();
 	showObservationList(navBar);
 	closeMoreInfo();
+	addYourOwnBird(controlAddYourOwnBird)
 };
 
 init();

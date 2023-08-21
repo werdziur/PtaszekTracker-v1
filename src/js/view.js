@@ -38,7 +38,6 @@ export const moreInfo = document.querySelector('.more-information');
 export const moreInfoContainer = document.querySelector('.more-information__results');
 export const addBirdContainer = document.querySelector('.add-bird');
 
-
 let map;
 export let mapEvent;
 let layer;
@@ -341,17 +340,14 @@ export const removeAll = function (handler) {
 };
 
 export const addYourOwnBird = function (handler) {
-	
 	addBirdContainer.addEventListener('click', e => {
-		e.preventDefault()
+		e.preventDefault();
 		const addButton = e.target.closest('.add-bird__submit');
 		if (!addButton) return;
 		const birdForm = document.querySelector('.add-bird__form');
-		console.log('clicked');
-		const birdData = new FormData(birdForm, addButton)
-		console.log(birdData)
-		console.log(birdForm)
+		const birdData = [...new FormData(birdForm)]
+		handler(birdData)
 	});
 };
 
-addYourOwnBird()
+
