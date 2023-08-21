@@ -36,7 +36,7 @@ const successMessageText = document.querySelector('.success-window__text');
 export const removeMessage = document.querySelector('.remove-window');
 export const moreInfo = document.querySelector('.more-information');
 export const moreInfoContainer = document.querySelector('.more-information__results');
-export const addBirdContainer = document.querySelector('.add-bird');
+
 
 let map;
 export let mapEvent;
@@ -146,17 +146,18 @@ export const showErrorWindow = function () {
 	});
 };
 
-export const closeSuccessWindow = function () {
-	successMessageButton.addEventListener('click', () => {
-		successMessage.style.display = 'none';
-		overlay.style.display = 'none';
-	});
-};
 
 export const displaySuccessWindow = function (text) {
 	successMessage.style.display = 'flex';
 	overlay.style.display = 'flex';
 	successMessageText.innerText = `${text}`;
+};
+
+export const closeSuccessWindow = function () {
+	successMessageButton.addEventListener('click', () => {
+		successMessage.style.display = 'none';
+		overlay.style.display = 'none';
+	});
 };
 
 const closeRemoveMessage = function () {
@@ -340,13 +341,17 @@ export const removeAll = function (handler) {
 };
 
 export const addYourOwnBird = function (handler) {
-	addBirdContainer.addEventListener('click', e => {
+	addBirdWindow.addEventListener('click', e => {
 		e.preventDefault();
 		const addButton = e.target.closest('.add-bird__submit');
 		if (!addButton) return;
 		const birdForm = document.querySelector('.add-bird__form');
-		const birdData = [...new FormData(birdForm)]
+		const birdDataArr = [...new FormData(birdForm)]
+		const birdData = Object.fromEntries(birdDataArr)
 		handler(birdData)
+		displaySuccessWindow('The bird has been added');
+		addBirdWindow.style.display = 'none';
+		closeSuccessWindow()
 	});
 };
 
