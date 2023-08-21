@@ -32,7 +32,8 @@ import {
 	showOverview,
 	clickOverview,
 	removeAll,
-	addYourOwnBird
+	addYourOwnBird,
+	closeSuccessWindow
 	
 } from './view.js';
 
@@ -111,6 +112,7 @@ const removeObservationArray = function() {
 
 const controlAddYourOwnBird = function(birdData) {
 	console.log(birdData)
+	
 }
 
 const init = function () {
