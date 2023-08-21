@@ -36,6 +36,8 @@ const successMessageText = document.querySelector('.success-window__text');
 export const removeMessage = document.querySelector('.remove-window');
 export const moreInfo = document.querySelector('.more-information');
 export const moreInfoContainer = document.querySelector('.more-information__results');
+export const addBirdContainer = document.querySelector('.add-bird');
+
 
 let map;
 export let mapEvent;
@@ -102,8 +104,7 @@ export const closeWindow = function (el, target) {
 	el.addEventListener('click', () => {
 		if (el === buttonSearchSubmit) {
 			target.style.display = 'none';
-		}
-		else {
+		} else {
 			target.style.display = 'none';
 			overlay.style.display = 'none';
 			searchResultsContainer.innerHTML = '';
@@ -338,3 +339,19 @@ export const removeAll = function (handler) {
 		observationsContainer.innerHTML = '';
 	});
 };
+
+export const addYourOwnBird = function (handler) {
+	
+	addBirdContainer.addEventListener('click', e => {
+		e.preventDefault()
+		const addButton = e.target.closest('.add-bird__submit');
+		if (!addButton) return;
+		const birdForm = document.querySelector('.add-bird__form');
+		console.log('clicked');
+		const birdData = new FormData(birdForm, addButton)
+		console.log(birdData)
+		console.log(birdForm)
+	});
+};
+
+addYourOwnBird()
