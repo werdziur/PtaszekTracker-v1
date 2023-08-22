@@ -77,8 +77,9 @@ const updateObservationsList = function (birdName, layer) {
 	//take marker data and render marker
 	layer = renderMarker(bird.name, bird.date);
 
-	//update state and render bird on the obersvation list
+	//update state and render bird on the obeservation list
 	model.addChosenBirdToObservations(bird, layer);
+	
 	model.state.observations.forEach(el => {
 		renderSelectedBird(el);
 	});
@@ -110,9 +111,21 @@ const removeObservationArray = function() {
 	model.removeAllObservations();
 };
 
-const controlAddYourOwnBird = function(birdData) {
-	console.log(birdData)
-	
+const controlAddYourOwnBird = function(birdData, layer) {
+	const bird = birdData
+	bird.date = new Date();
+	bird.id = Math.random() + '';
+	bird.coords = getCoords();
+	console.log(bird)
+	//take marker data and render marker
+	layer = renderMarker(bird.name, bird.date);
+
+	//update state and render bird on the obeservation list
+	model.addChosenBirdToObservations(bird, layer);
+	console.log(model.state.observations)
+	model.state.observations.forEach(el => {
+		renderSelectedBird(el);
+	});
 }
 
 const init = function () {
