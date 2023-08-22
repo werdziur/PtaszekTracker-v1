@@ -227,6 +227,7 @@ export const renderMarker = function (bird, date) {
 };
 
 export const renderSelectedBird = function (bird) {
+	
 	const finalName = bird.name[0].toUpperCase() + bird.name.slice(1);
 	const html = `<div class="birds-list__result" data-name="${bird.name}" data-id="${bird.id}" >
 	<div class="birds-list__result--icon">
@@ -345,6 +346,7 @@ export const addYourOwnBird = function (handler) {
 		e.preventDefault();
 		const addButton = e.target.closest('.add-bird__submit');
 		if (!addButton) return;
+		observationsContainer.innerHTML = ''
 		const birdForm = document.querySelector('.add-bird__form');
 		const birdDataArr = [...new FormData(birdForm)]
 		const birdData = Object.fromEntries(birdDataArr)
