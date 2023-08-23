@@ -36,6 +36,7 @@ const successMessageText = document.querySelector('.success-window__text');
 export const removeMessage = document.querySelector('.remove-window');
 export const moreInfo = document.querySelector('.more-information');
 export const moreInfoContainer = document.querySelector('.more-information__results');
+export const searchInput = document.querySelector('.search__input')
 
 
 let map;
@@ -107,6 +108,9 @@ export const closeWindow = function (el, target) {
 			target.style.display = 'none';
 			overlay.style.display = 'none';
 			searchResultsContainer.innerHTML = '';
+			searchInput.value = '';
+			const birdForm = document.querySelector('.add-bird__form');
+			birdForm.reset()
 		}
 	});
 };
@@ -353,6 +357,7 @@ export const addYourOwnBird = function (handler) {
 		handler(birdData)
 		displaySuccessWindow('The bird has been added');
 		addBirdWindow.style.display = 'none';
+		birdForm.reset()
 		closeSuccessWindow()
 	});
 };
